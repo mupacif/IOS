@@ -7,16 +7,33 @@
 //
 
 #import "ViewController.h"
+/*
+ Entre @interface et @end je peux définir
+ -des propriétés
+ -des méthodes
+ qui ne sont pas visible à l'extérieure de la classe
+ */
+@interface ViewController () //extention
 
-@interface ViewController ()
+@property(nonatomic, strong) NSString* automobile;
 
 @end
 
+/*
+ 
+ */
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"valeur de la propriété 'nom' avant initialisation est %@ %@ %@", self.nom, _nom,[self nom]);
+    
+    self.nom =@"andro";
+    _nom=@"andro";
+    [self setNom:@"andro"];
+    
+    NSLog(@"valeur de la propriété 'nom' après initialisation est %@ %@ %@", self.nom, _nom,[self nom]);
+    
 }
 
 
