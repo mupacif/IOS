@@ -24,4 +24,11 @@
 
     NSLog(@" self.nom: %@,self.prenom: %@,estMariée: %i,nom: %@ ",self.nom,self.prenom,estMariée,nom); //%i : entier %d est pour les décimal
 }
+-(void) testerAvecInitialisation
+{
+    
+
+    NSLog(@" self.nom: %@,self.prenom: %@,estMariée: %i",self.nom,self.prenom,estMariée);
+    //%i : entier %d est pour les décimal
+}
 @end

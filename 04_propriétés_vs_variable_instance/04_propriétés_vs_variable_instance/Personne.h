@@ -21,4 +21,5 @@
 @property (nonatomic,strong) NSString * prenom;
 
 -(void)tester;
+-(void)testerAvecInitialisation;
 @end
