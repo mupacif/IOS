@@ -11,6 +11,7 @@
 @interface ViewController ()
 @property (nonatomic) double soldeCompteBancaire;
 @property (nonatomic) double prixProduit;
+@property (weak, nonatomic) IBOutlet UIImageView *monImage;
 @end
 
 @implementation ViewController
