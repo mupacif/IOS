@@ -10,4 +10,5 @@
 
 @interface Automobile : NSObject
 @property(nonatomic) long odometre;
+@property(nonatomic) NSString * modele;
 @end

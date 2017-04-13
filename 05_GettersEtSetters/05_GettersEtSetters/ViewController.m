@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "Automobile.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // instanciation
+    Automobile * automobile = [Automobile new];
+    
+    //appel implicite du setter
+    automobile.odometre = 10000;
+     //appel implicite du getter
+    NSLog(@"le kilométrage de votre voiture : %li",automobile.odometre);
+    
+    automobile.odometre = 5000;
+    NSLog(@"le kilométrage de votre voiture : %li",automobile.odometre);
+   
+    //utilisation explicite
+    [automobile setOdometre:12000];
+    NSLog(@"le kilométrage de votre voiture : %li",[automobile odometre]);
+    
+    
+    automobile.modele = @"aston martin db10";
+    NSLog(@"votre voiture : %@",automobile.modele);
+    
+    automobile.modele = @"renault";
+    NSLog(@"votre voiture : %@",automobile.modele);
+
 }
 
 

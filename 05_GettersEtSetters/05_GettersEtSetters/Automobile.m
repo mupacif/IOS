@@ -22,4 +22,11 @@
     }
     NSLog(@"nouvelle valeur de l'odometre: %li",_odometre);
 }
+-(NSString *) modele
+{
+    if([[_modele lowercaseString] isEqualToString:@"aston martin db10"])
+        return @"Cette information est confidentielle";
+    else
+        return _modele;
+}
 @end
