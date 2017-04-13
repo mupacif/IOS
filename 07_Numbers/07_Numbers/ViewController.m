@@ -53,8 +53,6 @@
     NSNumber * resultat = [NSNumber numberWithFloat:vi*vf];
     
     NSNumber * r = @(13/3);
-    
-    
 }
 
 
