@@ -50,6 +50,50 @@
     NSLog(@"Employé et société:%@", chaineResultat);
     
     
+    /*
+     Comparaison de 2 chaines
+     */
+    NSString *formation1 = @"Swift";
+    NSString *formation2 = @"swift";
+    //NSString *formation2 = [NSString stringWithFormat:
+     //                   @"swi",@"ft"];
+    if(formation1==formation2)
+        NSLog(@"Les variables f1 et f2 sont égales");
+    else
+        NSLog(@"Les variables f1 et f2 ne sont pas égales");
+    
+ 
+    
+    
+    //pour comparer le contenu des chaines, on utilise ==
+    //mais des méthodes spécialisé
+    formation2 =@"swift";
+    if([formation2 isEqualToString:formation2])
+        NSLog(@"f1:%@ == f2:%@",formation1,formation2);
+    else
+        NSLog(@"f1:%@ != f2:%@",formation1,formation2);
+    
+    //si on veut rendre la comparaison non case sensitive
+    //on a 2 solutions
+    // mettre en oeuvere les 2 solutions
+    //- utiliser le passage en minuscule
+    
+    if([ [formation1 lowercaseString] isEqualToString: [formation2 lowercaseString]])
+        NSLog(@" usage lowercaseString: f1:%@ == f2:%@",formation1,formation2);
+    else
+        NSLog(@"usage lowercaseString: f1:%@ != f2:%@",formation1,formation2);
+    
+    
+       //-utiliser un fonction spécialisé
+    if([formation1 compare:formation2])
+        NSLog(@" usage compare: f1:%@ == f2:%@",formation1,formation2);
+    else
+        NSLog(@"usage compare: f1:%@ != f2:%@",formation1,formation2);
+
+        
+        
+    
+    
 }
 
 
