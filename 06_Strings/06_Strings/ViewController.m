@@ -43,6 +43,13 @@
     
     NSLog(@"nom complet: %@", nomComplet);
     
+    //2e posibilités
+    //Crée à partir de ce qui existe déjà
+    NSString *chaineResultat = [nomComplet stringByAppendingString:@"- employé chez Apple"];
+    
+    NSLog(@"Employé et société:%@", chaineResultat);
+    
+    
 }
 
 
