@@ -54,21 +54,21 @@
      Comparaison de 2 chaines
      */
     NSString *formation1 = @"Swift";
-    NSString *formation2 = @"swift";
-    //NSString *formation2 = [NSString stringWithFormat:
-     //                   @"swi",@"ft"];
+    //NSString *formation2 = @"swift";
+    NSString *formation2 = [NSString stringWithFormat:
+                     @"swi",@"ft"];
     if(formation1==formation2)
-        NSLog(@"Les variables f1 et f2 sont égales");
+        NSLog(@"Les adresses des variables f1 et f2 sont égales");
     else
-        NSLog(@"Les variables f1 et f2 ne sont pas égales");
+        NSLog(@"Les adresses des variables f1 et f2 ne sont pas égales");
     
  
     
     
     //pour comparer le contenu des chaines, on utilise ==
     //mais des méthodes spécialisé
-    formation2 =@"swift";
-    if([formation2 isEqualToString:formation2])
+    formation2 =@"SWIFT";
+    if([formation1 isEqualToString:formation2])
         NSLog(@"f1:%@ == f2:%@",formation1,formation2);
     else
         NSLog(@"f1:%@ != f2:%@",formation1,formation2);
@@ -85,10 +85,29 @@
     
     
        //-utiliser un fonction spécialisé
-    if([formation1 compare:formation2])
+    if([formation1 caseInsensitiveCompare:formation2] == NSOrderedSame)
         NSLog(@" usage compare: f1:%@ == f2:%@",formation1,formation2);
     else
         NSLog(@"usage compare: f1:%@ != f2:%@",formation1,formation2);
+    
+    //Exercice 2
+    // 1-etudier la façon dont on peut extraire une sous-chaine à partir d'une chaine en précisant les limites d'extractions
+    
+    NSString * name = @"Pacifique Mugwaneza";
+    
+    
+    NSString * sub1 = [name substringWithRange:NSMakeRange(3, 3)];
+    
+    NSLog(@"subStringed:%@", sub1);
+    // 2-donner un exemple d'utilisation de la longueur d'une chaine
+    NSLog(@" size of sub1 : %lu",(unsigned long)[sub1 length]);
+    // 3-étudier la façon dont on peut remplacer une sous-chaine par une autre sous-chaine
+    
+    // 4- trouver l'équivalent de la méthode d'instance java
+    
+    //indexOf et imaginer un algorithme pour trouver toutes les occurences d'une sous-chaines
+    
+    //les occurences d'une chaine
 
         
         
