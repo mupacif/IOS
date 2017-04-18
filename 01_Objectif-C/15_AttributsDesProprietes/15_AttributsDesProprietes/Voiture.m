@@ -9,5 +9,8 @@
 #import "Voiture.h"
 
 @implementation Voiture
-
+-(void) dealloc
+{
+    NSLog(@"La voiture a été supprimée de la mémoire");
+}
 @end

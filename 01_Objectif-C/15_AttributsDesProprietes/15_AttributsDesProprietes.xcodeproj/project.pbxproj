@@ -14,6 +14,8 @@
 		EC3590581EA62510009086AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3590571EA62510009086AF /* Assets.xcassets */; };
 		EC35905B1EA62510009086AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3590591EA62510009086AF /* LaunchScreen.storyboard */; };
 		EC3590641EA62554009086AF /* Voiture.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3590631EA62554009086AF /* Voiture.m */; };
+		EC3590671EA62973009086AF /* Employe.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3590661EA62973009086AF /* Employe.m */; };
+		EC35906A1EA63ED0009086AF /* Societe.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3590691EA63ED0009086AF /* Societe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		EC35905C1EA62510009086AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC3590621EA62554009086AF /* Voiture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voiture.h; sourceTree = "<group>"; };
 		EC3590631EA62554009086AF /* Voiture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voiture.m; sourceTree = "<group>"; };
+		EC3590651EA62973009086AF /* Employe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Employe.h; sourceTree = "<group>"; };
+		EC3590661EA62973009086AF /* Employe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employe.m; sourceTree = "<group>"; };
+		EC3590681EA63ED0009086AF /* Societe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Societe.h; sourceTree = "<group>"; };
+		EC3590691EA63ED0009086AF /* Societe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Societe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,10 @@
 				EC35904B1EA62510009086AF /* Supporting Files */,
 				EC3590621EA62554009086AF /* Voiture.h */,
 				EC3590631EA62554009086AF /* Voiture.m */,
+				EC3590651EA62973009086AF /* Employe.h */,
+				EC3590661EA62973009086AF /* Employe.m */,
+				EC3590681EA63ED0009086AF /* Societe.h */,
+				EC3590691EA63ED0009086AF /* Societe.m */,
 			);
 			path = 15_AttributsDesProprietes;
 			sourceTree = "<group>";
@@ -156,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3590531EA62510009086AF /* ViewController.m in Sources */,
+				EC3590671EA62973009086AF /* Employe.m in Sources */,
+				EC35906A1EA63ED0009086AF /* Societe.m in Sources */,
 				EC3590501EA62510009086AF /* AppDelegate.m in Sources */,
 				EC3590641EA62554009086AF /* Voiture.m in Sources */,
 				EC35904D1EA62510009086AF /* main.m in Sources */,
