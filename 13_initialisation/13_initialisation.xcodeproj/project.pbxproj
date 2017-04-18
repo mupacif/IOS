@@ -61,6 +61,8 @@
 		EC7D9A7F1EA10D8E002983E3 /* 13_initialisation */ = {
 			isa = PBXGroup;
 			children = (
+				EC7D9A971EA10DB8002983E3 /* Personne.h */,
+				EC7D9A981EA10DB8002983E3 /* Personne.m */,
 				EC7D9A831EA10D8E002983E3 /* AppDelegate.h */,
 				EC7D9A841EA10D8E002983E3 /* AppDelegate.m */,
 				EC7D9A861EA10D8E002983E3 /* ViewController.h */,
@@ -70,8 +72,6 @@
 				EC7D9A8E1EA10D8E002983E3 /* LaunchScreen.storyboard */,
 				EC7D9A911EA10D8E002983E3 /* Info.plist */,
 				EC7D9A801EA10D8E002983E3 /* Supporting Files */,
-				EC7D9A971EA10DB8002983E3 /* Personne.h */,
-				EC7D9A981EA10DB8002983E3 /* Personne.m */,
 			);
 			path = 13_initialisation;
 			sourceTree = "<group>";
@@ -317,6 +317,7 @@
 				EC7D9A961EA10D8E002983E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

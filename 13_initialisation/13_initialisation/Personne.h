@@ -22,4 +22,5 @@
         avecNom:(NSString*)nom
         avecPrenom:(NSString*)prenom
         etAvecAnneeNaissance:(int)anneeNaissance;
+-(void) afficherInfos;
 @end

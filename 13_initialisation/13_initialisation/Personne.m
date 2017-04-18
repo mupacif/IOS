@@ -9,7 +9,13 @@
 #import "Personne.h"
 
 @implementation Personne
-/*-(id) initAvecNom:(NSString *)nom etAvecPrenom:(NSString *)prenom
+
+//tableau d"finissant les civilités format texte
+//AU FORMAT TEXTE ("m", "Mme","Mlle")
+//instruction du language c
+// le même pour toutes les instances
+static NSArray* tbCivilitesTexte = nil;
+-(id) initAvecNom:(NSString *)nom etAvecPrenom:(NSString *)prenom
 {
     if(self=[super init])
     {
@@ -25,7 +31,7 @@
         self.anneeNaissance = aneeNaissance;
     }
     return self;
-}*/
+}
 // initialisateur désigné (designated initialiser)
 -(id) initAvecCivilité:(int)civilite
 avecNom:(NSString*)nom
@@ -77,19 +83,46 @@ etAvecAnneeNaissance:(int)anneeNaissance
 //version 2
 //initialisateurs de convénience(convenience initializer)
 //initialisateurs secondaires
--(id) initAvecNom:(NSString *)nom etAvecPrenom:(NSString*)prenom
+/*-(id) initAvecNom:(NSString *)nom etAvecPrenom:(NSString*)prenom
 {
-    NSDate* dateCourante = [NSDate date];
+   /*   NSDate* dateCourante = [NSDate date];
     //récuperer un composant de la date
-    NSDateComponents* components = [[NSCalendar currentCalendar] components:NSCalendarUnitSecond
+  NSDateComponents* components = [[NSCalendar currentCalendar] components:NSCalendarUnitSecond
                                     | NSCalendarUnitMinute |  NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear
         
                                                                    fromDate:dateCourante];
     
     int année = (int) [components year];
     int jour = (int) [components day];
-    
-    return [self initAvecNom:nom etAvecPrenom:prenom];
-}
 
+    return [self];
+}*/
+-(id) init
+{
+    NSAssert(FALSE,@"Pas de constructeur sans parametres");
+    return nil;
+}
+//constructeur de classe
+-(void) initialize
+{
+    NSLog(@"initialisateur de la classe");
+    //cet initialisateur est appelé qyuand la classe personne
+    // est crée mais aussi quand ses sous-classes sont créée aussi
+    //par exemple le double appl de cet init
+    
+    //Pour empecher le double appel de cet initialisateur par les classes
+    //dérivées, on peut faire le test suivant
+    if([self class]== [Personne class])
+    {
+        tbCivilitesTexte = @[@"Monsieur",@"Madame",@"Mademoiselle"];
+    }
+}
+-(void) afficherInfos
+{
+    NSLog(@"%@ %@ %@, né en %d",
+          [tbCivilitesTexte objectAtIndex:self.civilite],
+          self.prenom,
+          self.nom,
+          self.anneeNaissance);
+}
 @end
