@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,22 +22,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Titre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kD-gg-TEf">
-                                <rect key="frame" x="44" y="20" width="287" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G6t-k9-uqy">
+                                <rect key="frame" x="23" y="558" width="325" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNl-Qo-jKi">
+                                <rect key="frame" x="302" y="84" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Titre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kD-gg-TEf">
+                                <rect key="frame" x="33" y="28" width="315" height="28"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.80000001190000003" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-td-yt6">
+                                <rect key="frame" x="44" y="84" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DAO-wr-uS5">
+                                <rect key="frame" x="33" y="129" width="315" height="387"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="6kD-gg-TEf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3uu-OG-p3F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HNl-Qo-jKi" secondAttribute="trailing" constant="11" id="4i1-rv-WdH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6kD-gg-TEf" secondAttribute="trailing" constant="147.5" id="9Kk-I5-38F"/>
+                            <constraint firstItem="6kD-gg-TEf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="148" id="AUX-1v-xxF"/>
+                            <constraint firstItem="DAO-wr-uS5" firstAttribute="trailing" secondItem="6kD-gg-TEf" secondAttribute="trailing" id="GE5-FW-ax2"/>
+                            <constraint firstItem="HNl-Qo-jKi" firstAttribute="leading" secondItem="zkw-td-yt6" secondAttribute="trailing" constant="212" id="Gt4-NH-Rvk"/>
+                            <constraint firstItem="zkw-td-yt6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="28" id="LgZ-Nn-J6N"/>
+                            <constraint firstItem="DAO-wr-uS5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="17" id="NOd-1C-5V1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G6t-k9-uqy" secondAttribute="bottom" constant="79" id="OiH-GV-s4D"/>
+                            <constraint firstItem="DAO-wr-uS5" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RY4-m0-Kom"/>
+                            <constraint firstItem="G6t-k9-uqy" firstAttribute="top" secondItem="DAO-wr-uS5" secondAttribute="bottom" constant="30" id="YOa-1T-VQI"/>
+                            <constraint firstItem="zkw-td-yt6" firstAttribute="top" secondItem="6kD-gg-TEf" secondAttribute="bottom" constant="28" id="YU1-gf-BQQ"/>
+                            <constraint firstItem="HNl-Qo-jKi" firstAttribute="top" secondItem="6kD-gg-TEf" secondAttribute="bottom" constant="28" id="od2-8w-fgf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DAO-wr-uS5" secondAttribute="bottom" constant="139" id="wJZ-tY-iGR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="116" y="121.88905547226388"/>
         </scene>
     </scenes>
 </document>
