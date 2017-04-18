@@ -24,4 +24,31 @@
     }
     return self;
 }
+//méthode impossé par Pimposable
+-(float) calculerImpot
+{
+    float impot;
+    float salaireAnnuel = self.salaire * 12;
+    
+    if(salaireAnnuel < 12000)
+    {
+        impot = 0;
+    }else if(salaireAnnuel <25000)
+    {
+        impot = (salaireAnnuel - 12000)*0.15f;
+    }
+    else if(salaireAnnuel <40000)
+    {
+        impot = (25000-12000)*0.15f +(salaireAnnuel - 25000)*0.3f;
+    }
+    else
+        impot = (25000-12000)*0.15f+(40000-25000)*0.3f +
+        (salaireAnnuel - 40000)*0.5f;
+    
+    return impot;
+}
+-(NSString*)nomImpot
+{
+    return @"import sur le revenu";
+}
 @end

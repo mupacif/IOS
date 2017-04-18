@@ -35,6 +35,7 @@
 		EC3590391EA60B37009086AF /* Employe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Employe.m; sourceTree = "<group>"; };
 		EC35903B1EA60F37009086AF /* Achat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Achat.h; sourceTree = "<group>"; };
 		EC35903C1EA60F37009086AF /* Achat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Achat.m; sourceTree = "<group>"; };
+		EC35903E1EA617AB009086AF /* PImposable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PImposable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +68,9 @@
 		EC35901D1EA60761009086AF /* 14_protocole */ = {
 			isa = PBXGroup;
 			children = (
+				EC35903E1EA617AB009086AF /* PImposable.h */,
+				EC35903B1EA60F37009086AF /* Achat.h */,
+				EC35903C1EA60F37009086AF /* Achat.m */,
 				EC3590381EA60B37009086AF /* Employe.h */,
 				EC3590391EA60B37009086AF /* Employe.m */,
 				EC3590351EA6077F009086AF /* Personne.h */,
@@ -80,8 +84,6 @@
 				EC35902C1EA60761009086AF /* LaunchScreen.storyboard */,
 				EC35902F1EA60761009086AF /* Info.plist */,
 				EC35901E1EA60761009086AF /* Supporting Files */,
-				EC35903B1EA60F37009086AF /* Achat.h */,
-				EC35903C1EA60F37009086AF /* Achat.m */,
 			);
 			path = 14_protocole;
 			sourceTree = "<group>";

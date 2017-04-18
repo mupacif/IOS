@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Personne.h"
-
-@interface Employe : Personne
+#import "PImposable.h"
+@interface Employe : Personne <PImposable/*,P1,p2*/>
 @property float salaire;
 
 -(id) initAvecNom:(NSString*)nom etSalaire:(float) salaire;
