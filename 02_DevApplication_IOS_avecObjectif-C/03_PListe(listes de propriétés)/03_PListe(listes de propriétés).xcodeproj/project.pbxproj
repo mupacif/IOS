@@ -13,6 +13,7 @@
 		ECEB95C51EA753BC00F6C701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECEB95C31EA753BC00F6C701 /* Main.storyboard */; };
 		ECEB95C71EA753BC00F6C701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECEB95C61EA753BC00F6C701 /* Assets.xcassets */; };
 		ECEB95CA1EA753BC00F6C701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECEB95C81EA753BC00F6C701 /* LaunchScreen.storyboard */; };
+		ECEB95D21EA754DA00F6C701 /* DonneesPersonnelles.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECEB95D11EA754DA00F6C701 /* DonneesPersonnelles.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ECEB95C61EA753BC00F6C701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECEB95C91EA753BC00F6C701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECEB95CB1EA753BC00F6C701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECEB95D11EA754DA00F6C701 /* DonneesPersonnelles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DonneesPersonnelles.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				ECEB95C81EA753BC00F6C701 /* LaunchScreen.storyboard */,
 				ECEB95CB1EA753BC00F6C701 /* Info.plist */,
 				ECEB95BA1EA753BC00F6C701 /* Supporting Files */,
+				ECEB95D11EA754DA00F6C701 /* DonneesPersonnelles.plist */,
 			);
 			path = "03_PListe(listes de propriétés)";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECEB95CA1EA753BC00F6C701 /* LaunchScreen.storyboard in Resources */,
+				ECEB95D21EA754DA00F6C701 /* DonneesPersonnelles.plist in Resources */,
 				ECEB95C71EA753BC00F6C701 /* Assets.xcassets in Resources */,
 				ECEB95C51EA753BC00F6C701 /* Main.storyboard in Resources */,
 			);
