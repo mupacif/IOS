@@ -19,22 +19,22 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSMutableArray * registre = [NSMutableArray new];
+  /*  NSMutableArray * registre = [NSMutableArray new];
     Personne * p = [Personne new];
     p.nom = @"Marie";
     
    /* NSLog(@"%@", p);
-    [registre addObject:p];*/
+    [registre addObject:p];/**/
     
-    Employe* e = [[Employe alloc] initAvecNom:@"Pacifique" etSalaire:3000];
+    //Employe* e = [[Employe alloc] initAvecNom:@"Pacifique" etSalaire:3000];
     
-    [registre addObject:e];
+  //  [registre addObject:e];
     
-    Achat * a = [[Achat alloc] initAvecPrixHT:100 etTypeTVA:@"tva20"];
-    //[registre addObject:a];
+   // Achat * a = [[Achat alloc] initAvecPrixHT:100 etTypeTVA:@"tva20"];
+ //   [registre addObject:a];/**/
     
 
-    float recette = 0;
+    /*float recette = 0;
     float impotItem=0;
     for(NSObject* item in registre)
     {
@@ -46,7 +46,7 @@
                   recette+= impotItem;
         }
     }
-    NSLog(@"La recette totale du fisc: %0.2f",recette);
+    NSLog(@"La recette totale du fisc: %0.2f",recette);*/
 }
 
 

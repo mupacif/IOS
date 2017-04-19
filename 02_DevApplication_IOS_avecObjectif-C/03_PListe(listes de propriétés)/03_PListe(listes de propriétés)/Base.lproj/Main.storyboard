@@ -139,6 +139,7 @@
                         <outlet property="etqPrenom" destination="nNY-an-8lX" id="ggx-ea-tHq"/>
                         <outlet property="txtNbEnfants" destination="yiF-fq-XEI" id="g6K-KK-NFC"/>
                         <outlet property="txtSalaire" destination="x6A-2A-7aw" id="blP-Xn-6N7"/>
+                        <outlet property="txtTelephone" destination="1qr-fU-qvX" id="XhZ-zF-k7U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

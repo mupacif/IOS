@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *txtNbEnfants;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtSalaire;
+@property (weak, nonatomic) IBOutlet UITextField *txtTelephone;
 
 @end
 
@@ -50,13 +51,38 @@
     //Ce fichier doit être créer dans l'espace dédié à l'application
     // ou fans un de ses sous-répertoires
     //d'habitude on utilise le sous répertoire document
+    
+    //crééer le nom du fichier contenant saisies
+    NSArray* tbPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSString* nomCompletFichier= [[tbPaths objectAtIndex:0] stringByAppendingPathComponent:@"Perso.plist"];
+    
+    NSMutableDictionary * dicDonnesSaisies = [[NSMutableDictionary alloc] initWithContentsOfFile:nomCompletFichier];
+    
+    //a t-on bien chargé le dictionnaire?
+    if(dicDonnesSaisies!=nil)
+    {
+        NSNumber* salaire =[dicDonnesSaisies objectForKey:@"salaire"];
+        self.txtSalaire.text = [NSString stringWithFormat:@"%.2f",[salaire doubleValue]];
+        
+        
+        NSNumber * nbEnfants =
+        [dicDonnesSaisies objectForKey:@"nombre enfants"];
+        self.txtNbEnfants.text =
+        [NSString stringWithFormat:@"%ld", [nbEnfants integerValue]];
+        
+        self.txtTelephone.text=
+        [dicDonnesSaisies objectForKey:@"telephone" ];
+        
+        
+    }
 }
 
 
 - (IBAction)btnSauvegarderTouché:(id)sender {
     
     //récupérer la saisie
-    NSString* telephone = self.txtSalaire.text;
+    NSString* telephone = self.txtTelephone.text;
     
     NSString* salaireTxt = self.txtSalaire.text;
     
@@ -116,7 +142,20 @@
     //récuperer le nom du répertoire où on déposera
     //noter fichier
     
-    NSSearchPathForDirectoriesInDomains(<#NSSearchPathDirectory directory#>, <#NSSearchPathDomainMask domainMask#>, <#BOOL expandTilde#>)
+    //fonction du language c
+    NSArray* tbPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    
+    NSLog(@"##%@",[tbPaths description]);
+    
+    //crééer le nom du fichier contenant saisies
+    NSString* nomCompletFichier= [[tbPaths objectAtIndex:0] stringByAppendingPathComponent:@"Perso.plist"];
+    
+    NSMutableDictionary * dicDonnesSaisies = [[NSMutableDictionary alloc] initWithContentsOfFile:nomCompletFichier];
+    
+   
+    NSLog(@"%@", nomCompletFichier);
+    
+    [dico writeToFile:nomCompletFichier atomically:YES];
 }
 -(void)afficherAlerteAvecTitre:(NSString*)titre etMessage:(NSString*)message
 {
