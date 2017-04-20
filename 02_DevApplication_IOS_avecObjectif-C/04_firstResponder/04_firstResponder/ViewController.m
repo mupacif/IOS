@@ -35,6 +35,11 @@
 {
     [self.view endEditing:YES];
 }
+//méthode levé quand on touche Return sur le clavier visuel
+- (IBAction)btRetourClavierTouched:(UITextView*)controle{
+    [controle resignFirstResponder];
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
