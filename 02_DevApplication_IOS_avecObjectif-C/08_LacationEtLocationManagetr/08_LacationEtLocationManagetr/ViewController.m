@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import <Contacts/Contacts.h>
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *etqLatitude;
 @property (weak, nonatomic) IBOutlet UILabel *etqLongitude;
@@ -20,6 +19,8 @@
 @property (nonatomic,strong)CLLocationManager* locationManager;
 @property (nonatomic, strong) CLLocation* positionCourante;
 @property (nonatomic, strong) CLLocation* positionInitiale;
+@property (nonatomic) CLLocationDistance distance;
+
 @end
 
 @implementation ViewController
@@ -66,11 +67,11 @@
     self.etqLongitude.text = longitude;
     
     
-
+    
     NSString* altitude= [[NSString alloc] initWithFormat:@"%.6f",newLocation.altitude];
     self.etqAltitude.text = altitude;
     
-   
+    
     NSString* precisionH = [[NSString alloc] initWithFormat:@"%.6f",newLocation.horizontalAccuracy];
     self.etqPrecisionH.text = precisionH;
     
@@ -79,15 +80,64 @@
     self.etqPrecisionV.text = precisionV;
     
     //je dois m'assurer qu'une position initiale a été définie
-    if(!self.positionInitiale) //pas donnée
+   /* if(!self.positionInitiale) //pas donnée
     {
         self.positionInitiale = newLocation;
-    }
+    }*/
     
-    CLLocationDistance distance = [newLocation distanceFromLocation:self.positionInitiale];
     
-    NSString* distanceTxt = [[NSString alloc] initWithFormat:@"%f",distance];
+    self.distance += [newLocation distanceFromLocation:oldLocation];
+    if(self.distance <0)
+        self.distance = 0;
+        
+    NSString* distanceTxt = [[NSString alloc] initWithFormat:@"%.0f",_distance];
     self.etqDistance.text = distanceTxt;
+    
+    //récupérer (si possible) une adresse à partir de la position
+    //newLocation
+    CLGeocoder* geocoder = [CLGeocoder new];
+    [geocoder reverseGeocodeLocation:newLocation
+                   completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+                       if(error)
+                       {
+                           NSLog(@"Geocoder a échoué avec l'erreur %@", error);
+                           return;
+                       }
+                       if(placemarks && placemarks.count >0)
+                       {
+                           CLPlacemark* placemark = placemarks[0];
+                           //cet objet contient aussi bien le coordonnées
+                           //geographique que l'adresse (n, voie, ville, pays)
+                           //récupere ces information à l'aide d'un dictionnaire
+                           
+                           NSDictionary* dicoAvacLadresse = [placemark addressDictionary];
+                           //afficher dictionnaire avec début description
+                           //pour trouver les clés
+                           //NSLog(@"%@", [dicoAvacLadresse debugDescription]);
+                           //la sortie nous affiche un certain nombre de clés
+                           //j'en retients les suuivants
+                           //street, City, ZIP, country
+                           
+                           
+                           //récupérer à partir de ce dictionnaire
+                           //les composants de l'adresse
+                           NSString* adresse = [dicoAvacLadresse objectForKey:/*CNPostalAddressStreetKey*/@"Street"];
+                           
+                           NSString* ville = [dicoAvacLadresse objectForKey:@"City"];
+                           
+                           NSString* cp = [dicoAvacLadresse objectForKey:@"ZIP"];
+                           
+                           
+                           NSString* pays = [dicoAvacLadresse objectForKey:@"Country"];
+                           
+                           self.etqAdresse.text =
+                           [NSString stringWithFormat:@"%@ %@ %@ %@", adresse, cp,
+                            ville, pays];
+                           
+                       }
+                
+                           
+                   }];
     
     
     
