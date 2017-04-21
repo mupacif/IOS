@@ -13,6 +13,9 @@
 		ECF94F511EA9F6B000F9D9E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF94F4F1EA9F6B000F9D9E5 /* Main.storyboard */; };
 		ECF94F531EA9F6B000F9D9E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECF94F521EA9F6B000F9D9E5 /* Assets.xcassets */; };
 		ECF94F561EA9F6B000F9D9E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF94F541EA9F6B000F9D9E5 /* LaunchScreen.storyboard */; };
+		ECF94F5F1EA9F82000F9D9E5 /* loupe.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF94F5E1EA9F82000F9D9E5 /* loupe.png */; };
+		ECF94F611EA9F9A000F9D9E5 /* fleche.png in Resources */ = {isa = PBXBuildFile; fileRef = ECF94F601EA9F9A000F9D9E5 /* fleche.png */; };
+		ECF94F641EAA018700F9D9E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF94F631EAA018700F9D9E5 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		ECF94F521EA9F6B000F9D9E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECF94F551EA9F6B000F9D9E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECF94F571EA9F6B000F9D9E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF94F5E1EA9F82000F9D9E5 /* loupe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loupe.png; sourceTree = "<group>"; };
+		ECF94F601EA9F9A000F9D9E5 /* fleche.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleche.png; sourceTree = "<group>"; };
+		ECF94F631EAA018700F9D9E5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF94F641EAA018700F9D9E5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,7 @@
 			children = (
 				ECF94F451EA9F6B000F9D9E5 /* 09_MapView */,
 				ECF94F441EA9F6B000F9D9E5 /* Products */,
+				ECF94F621EAA018700F9D9E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +66,7 @@
 		ECF94F451EA9F6B000F9D9E5 /* 09_MapView */ = {
 			isa = PBXGroup;
 			children = (
+				ECF94F5D1EA9F7D300F9D9E5 /* MesImages */,
 				ECF94F491EA9F6B000F9D9E5 /* AppDelegate.h */,
 				ECF94F4A1EA9F6B000F9D9E5 /* AppDelegate.m */,
 				ECF94F4C1EA9F6B000F9D9E5 /* ViewController.h */,
@@ -77,6 +86,23 @@
 				ECF94F471EA9F6B000F9D9E5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECF94F5D1EA9F7D300F9D9E5 /* MesImages */ = {
+			isa = PBXGroup;
+			children = (
+				ECF94F601EA9F9A000F9D9E5 /* fleche.png */,
+				ECF94F5E1EA9F82000F9D9E5 /* loupe.png */,
+			);
+			name = MesImages;
+			sourceTree = "<group>";
+		};
+		ECF94F621EAA018700F9D9E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ECF94F631EAA018700F9D9E5 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECF94F561EA9F6B000F9D9E5 /* LaunchScreen.storyboard in Resources */,
+				ECF94F5F1EA9F82000F9D9E5 /* loupe.png in Resources */,
 				ECF94F531EA9F6B000F9D9E5 /* Assets.xcassets in Resources */,
+				ECF94F611EA9F9A000F9D9E5 /* fleche.png in Resources */,
 				ECF94F511EA9F6B000F9D9E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
