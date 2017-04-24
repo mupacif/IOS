@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC0455391EADE57800BFA880 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0455381EADE57800BFA880 /* DetailsViewController.m */; };
 		ECF94F731EAA39DD00F9D9E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF94F721EAA39DD00F9D9E5 /* main.m */; };
 		ECF94F761EAA39DD00F9D9E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF94F751EAA39DD00F9D9E5 /* AppDelegate.m */; };
 		ECF94F791EAA39DD00F9D9E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF94F781EAA39DD00F9D9E5 /* ViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC0455371EADE57800BFA880 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		EC0455381EADE57800BFA880 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		ECF94F6E1EAA39DD00F9D9E5 /* 10_UITableView_CellulePerso_	MasterDetails.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "10_UITableView_CellulePerso_\tMasterDetails.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF94F721EAA39DD00F9D9E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECF94F741EAA39DD00F9D9E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				ECF94F891EAA3E3000F9D9E5 /* maCellule.m */,
 				ECF94F8B1EAA40E200F9D9E5 /* Gateau.h */,
 				ECF94F8C1EAA40E200F9D9E5 /* Gateau.m */,
+				EC0455371EADE57800BFA880 /* DetailsViewController.h */,
+				EC0455381EADE57800BFA880 /* DetailsViewController.m */,
 			);
 			path = "10_UITableView_CellulePerso_\tMasterDetails";
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 				ECF94F791EAA39DD00F9D9E5 /* ViewController.m in Sources */,
 				ECF94F761EAA39DD00F9D9E5 /* AppDelegate.m in Sources */,
 				ECF94F8A1EAA3E3000F9D9E5 /* maCellule.m in Sources */,
+				EC0455391EADE57800BFA880 /* DetailsViewController.m in Sources */,
 				ECF94F731EAA39DD00F9D9E5 /* main.m in Sources */,
 				ECF94F8D1EAA40E200F9D9E5 /* Gateau.m in Sources */,
 			);
@@ -347,6 +353,7 @@
 				ECF94F871EAA39DD00F9D9E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

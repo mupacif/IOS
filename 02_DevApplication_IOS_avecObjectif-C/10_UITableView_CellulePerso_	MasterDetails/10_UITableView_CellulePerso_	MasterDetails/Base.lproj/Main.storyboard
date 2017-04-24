@@ -66,6 +66,7 @@
                                             <outlet property="etqDescription" destination="k66-rC-t5c" id="ikS-ay-fEJ"/>
                                             <outlet property="etqTitre" destination="vsc-7U-pHv" id="1GP-tV-mRO"/>
                                             <outlet property="imgGateau" destination="3U4-PZ-qhO" id="0yF-kK-Xdu"/>
+                                            <segue destination="hdz-MT-iz0" kind="presentation" id="rVM-22-b6G"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -89,6 +90,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116.25" y="123.59154929577466"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="vKb-t1-0y0">
+            <objects>
+                <viewController id="hdz-MT-iz0" customClass="DetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vaS-Rs-Hl5"/>
+                        <viewControllerLayoutGuide type="bottom" id="LEf-tF-aXs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MK1-Uw-6P9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h8y-E2-pZO">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Details" id="voP-LT-Tdi">
+                                        <barButtonItem key="leftBarButtonItem" title="&lt;retour" id="oR5-hW-ZsL">
+                                            <connections>
+                                                <action selector="btnRetourTouched:" destination="hdz-MT-iz0" id="9Uh-e2-Bl1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWl-Mz-WW8">
+                                <rect key="frame" x="50" y="102" width="240" height="151"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="etqDescription" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m3C-GW-nmZ">
+                                <rect key="frame" x="40" y="341" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="etqTitre" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HH4-b5-zRQ">
+                                <rect key="frame" x="50" y="281" width="238" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="46"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="etqDescription" destination="m3C-GW-nmZ" id="oe3-EK-GYD"/>
+                        <outlet property="etqTitre" destination="HH4-b5-zRQ" id="yh5-4V-C5B"/>
+                        <outlet property="imgGateau" destination="wWl-Mz-WW8" id="QmP-mQ-PBQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SEp-hd-BD6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950.625" y="127.8169014084507"/>
         </scene>
     </scenes>
 </document>
