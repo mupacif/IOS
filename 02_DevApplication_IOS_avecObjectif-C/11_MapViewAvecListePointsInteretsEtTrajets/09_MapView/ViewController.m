@@ -152,7 +152,8 @@
     [self afficherMap];
 }
 - (IBAction)btnRechercherTouched:(id)sender {
-    
+    //supprimer les placemarks de l'ancienne recherche
+    [self.mapView removeAnnotations:[self.mapView annotations]];
     //supprimer le tableau contenant les résultats de
     //la recherche précédente
     self.tbResultats = nil;

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -245,6 +246,7 @@
                                         <connections>
                                             <outlet property="etqNom" destination="a3Q-S2-iMu" id="NSO-i5-0xZ"/>
                                             <outlet property="etqTelephone" destination="CX7-pq-YTU" id="QYz-uP-bT4"/>
+                                            <segue destination="ZQb-gS-EIO" kind="presentation" id="c9R-Un-LGQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -267,6 +269,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ju-uZ-JKx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="849.375" y="123.59154929577466"/>
+        </scene>
+        <!--Trajet View Controller-->
+        <scene sceneID="gBM-SE-xxm">
+            <objects>
+                <viewController id="ZQb-gS-EIO" customClass="TrajetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7ue-Gz-uuz"/>
+                        <viewControllerLayoutGuide type="bottom" id="nEr-W0-N9F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sDZ-Ja-WJH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3r-mC-h9U">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Trajet" id="aBM-Ln-ad9">
+                                        <leftBarButtonItems>
+                                            <barButtonItem title="&lt;" id="nQa-ks-M3U">
+                                                <connections>
+                                                    <action selector="retourEcranPrecedentTouched:" destination="ZQb-gS-EIO" id="hgD-rT-Yv0"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="&lt;&lt;" id="DdH-kP-7px">
+                                                <connections>
+                                                    <action selector="bouttonRetourPremierEcranTouched:" destination="ZQb-gS-EIO" id="ytU-Ju-62x"/>
+                                                    <segue destination="4FA-LS-tA7" kind="unwind" unwindAction="troisiemeEcranVersPremierEcran:" id="IY0-ge-RA1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </leftBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" title="Recalculer" id="9sQ-iQ-Fy3">
+                                            <connections>
+                                                <action selector="btnRecarculer:" destination="ZQb-gS-EIO" id="9h2-un-Vy2"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chargement de votre position" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReP-dM-Oqr">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hr9-u2-ciK">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F3r-mC-h9U" firstAttribute="leading" secondItem="sDZ-Ja-WJH" secondAttribute="leading" id="3fd-Rt-ljH"/>
+                            <constraint firstItem="ReP-dM-Oqr" firstAttribute="leading" secondItem="sDZ-Ja-WJH" secondAttribute="leading" id="9FI-lR-4IK"/>
+                            <constraint firstItem="ReP-dM-Oqr" firstAttribute="top" secondItem="F3r-mC-h9U" secondAttribute="bottom" id="Ilh-cP-iiA"/>
+                            <constraint firstItem="ReP-dM-Oqr" firstAttribute="top" secondItem="7ue-Gz-uuz" secondAttribute="bottom" constant="44" id="JbP-Rq-oyX"/>
+                            <constraint firstAttribute="trailing" secondItem="F3r-mC-h9U" secondAttribute="trailing" id="Lrd-e1-yTD"/>
+                            <constraint firstItem="nEr-W0-N9F" firstAttribute="top" secondItem="ReP-dM-Oqr" secondAttribute="bottom" id="O0P-34-Tqw"/>
+                            <constraint firstItem="ReP-dM-Oqr" firstAttribute="leading" secondItem="sDZ-Ja-WJH" secondAttribute="leading" id="efj-Ff-cZ5"/>
+                            <constraint firstAttribute="trailing" secondItem="ReP-dM-Oqr" secondAttribute="trailing" id="iFI-M0-Zef"/>
+                            <constraint firstItem="F3r-mC-h9U" firstAttribute="top" secondItem="7ue-Gz-uuz" secondAttribute="bottom" id="o7p-yk-o1J"/>
+                            <constraint firstAttribute="trailing" secondItem="ReP-dM-Oqr" secondAttribute="trailing" id="sdb-es-kFf"/>
+                            <constraint firstItem="nEr-W0-N9F" firstAttribute="top" secondItem="ReP-dM-Oqr" secondAttribute="bottom" id="v8Z-zp-8xy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="maMap" destination="hr9-u2-ciK" id="6We-Dt-R8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPe-Pd-gm2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4FA-LS-tA7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1635" y="145.77464788732394"/>
         </scene>
     </scenes>
     <resources>

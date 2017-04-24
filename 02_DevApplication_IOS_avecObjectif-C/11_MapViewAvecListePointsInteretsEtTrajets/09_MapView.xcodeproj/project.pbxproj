@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ECA74B1F1EAE4727004CEEA3 /* TrajetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA74B1E1EAE4727004CEEA3 /* TrajetViewController.m */; };
 		ECDBFFE51EADFDD9001DC185 /* ResultatsRechercheViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDBFFE41EADFDD9001DC185 /* ResultatsRechercheViewContoller.m */; };
 		ECDBFFE81EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDBFFE71EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m */; };
 		ECF94F481EA9F6B000F9D9E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF94F471EA9F6B000F9D9E5 /* main.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ECA74B1D1EAE4727004CEEA3 /* TrajetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajetViewController.h; sourceTree = "<group>"; };
+		ECA74B1E1EAE4727004CEEA3 /* TrajetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajetViewController.m; sourceTree = "<group>"; };
 		ECDBFFE31EADFDD9001DC185 /* ResultatsRechercheViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultatsRechercheViewContoller.h; sourceTree = "<group>"; };
 		ECDBFFE41EADFDD9001DC185 /* ResultatsRechercheViewContoller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultatsRechercheViewContoller.m; sourceTree = "<group>"; };
 		ECDBFFE61EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellulePersonnaliseeTableViewCell.h; sourceTree = "<group>"; };
@@ -83,6 +86,8 @@
 				ECF94F571EA9F6B000F9D9E5 /* Info.plist */,
 				ECDBFFE31EADFDD9001DC185 /* ResultatsRechercheViewContoller.h */,
 				ECDBFFE41EADFDD9001DC185 /* ResultatsRechercheViewContoller.m */,
+				ECA74B1D1EAE4727004CEEA3 /* TrajetViewController.h */,
+				ECA74B1E1EAE4727004CEEA3 /* TrajetViewController.m */,
 				ECF94F461EA9F6B000F9D9E5 /* Supporting Files */,
 				ECDBFFE61EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.h */,
 				ECDBFFE71EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m */,
@@ -188,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA74B1F1EAE4727004CEEA3 /* TrajetViewController.m in Sources */,
 				ECF94F4E1EA9F6B000F9D9E5 /* ViewController.m in Sources */,
 				ECF94F4B1EA9F6B000F9D9E5 /* AppDelegate.m in Sources */,
 				ECF94F481EA9F6B000F9D9E5 /* main.m in Sources */,
