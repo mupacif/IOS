@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ResultatsRechercheViewContoller.h"
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txtRecherche;
@@ -28,6 +29,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *textRecherche;
 
 @property (nonatomic) MKCoordinateRegion region_a_afficher;
+
+//Définir un tableau pour stoquer les résultats
+//de la recherche (afin de pouvoir les envoyer vers le 2e controleur)
+@property (strong, nonatomic)NSMutableArray* tbResultats;
+
 @end
 
 
@@ -84,7 +90,61 @@
     [sender resignFirstResponder];
     [self btnRechercherTouched:nil];
 }
+//interdir la transition si le tableau de sésultat ne contient rien
+//pour cela on override la méthode
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    //comme on peut avoir plusieurs seque qui partent du
+    //controleur , je dois (je devrais) tester quel est
+    //lesegue passé en paramètre(effectivement cette méthode
+    //est appelée pour tous les segué)
 
+    //remarque: dans mon cas ce test n'est pas vraiment
+    //nécessaire car il n,y a qu'un seul segue au depart
+    //de ce controleur
+    if([identifier isEqualToString:@"segueVersResultatRecherche"])
+    {
+        //je voudrais interdire cette transition
+        //s'il n'y a pas de resultats à afficher
+        if(self.tbResultats != nil && self.tbResultats.count>0)
+        {
+            return YES;
+        }
+        else{
+            [self afficherAlerteAvecTitre:@"Afficher détails" etMessage:@"Il n'y a pas de resultats à détailler"];
+            return  NO;
+        }
+    }else
+        return YES;
+}
+
+
+-(void)afficherAlerteAvecTitre:(NSString*)titre etMessage:(NSString*)message
+{
+    UIAlertController* alert = [UIAlertController
+                                alertControllerWithTitle:titre
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    //définir un bouton pour fermer l'alerte
+    UIAlertAction* actionFermeture = [UIAlertAction
+                                      actionWithTitle:@"fermer"
+                                      style:UIAlertActionStyleCancel
+                                      handler:nil];
+    
+    //afficher le bouton à l'alerte
+    [alert addAction:actionFermeture];
+    //afficher l'alerte
+    [self presentViewController:alert
+                       animated:YES
+                     completion:nil];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // récupérer le destinataire de la transition
+    ResultatsRechercheViewContoller* destinataire = (ResultatsRechercheViewContoller *)[segue destinationViewController];
+    //j'ai passé les résultat au 2e écran.
+    destinataire.itemsTrouves  = self.tbResultats;
+}
 - (IBAction)sliderRegionChanged:(UISlider *)sender {
     
     self.coteRegion = sender.value;
@@ -93,6 +153,9 @@
 }
 - (IBAction)btnRechercherTouched:(id)sender {
     
+    //supprimer le tableau contenant les résultats de
+    //la recherche précédente
+    self.tbResultats = nil;
     //je veux exécuter une recherche pour trouver
     //les endroits convenant à la saisie faire dans
     //txtRecherche
@@ -123,9 +186,15 @@
         if(response.mapItems.count ==0)
             NSLog(@"Aucun résultalt");
         else{
+            //je veux stocker les éléments trouvé
+            //dans tbRrdultats pour les transmettre
+            //au 2e controlmeir
+            //je crée ce tableau
+            self.tbResultats = [[NSMutableArray alloc]init];
             //parcourir le tableau des items trouvés
             for(MKMapItem * item in response.mapItems)
             {
+                [self.tbResultats addObject:item];
                 //créer un MKPointAnnotation pour chaque item trouvé
                 MKPointAnnotation* pointInteret = [[MKPointAnnotation alloc] init];
                 pointInteret.coordinate = item.placemark.coordinate;

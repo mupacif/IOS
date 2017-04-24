@@ -33,11 +33,11 @@
 {
     if([typeTVA.lowercaseString isEqualToString:@"tva0"])
         return 0;
-    else if([typeTVA.lowercaseString isEqualToString:@"tv2"])
+    else if([typeTVA.lowercaseString isEqualToString:@"tva2"])
         return prixHT*0.02f;
-    else if([typeTVA.lowercaseString isEqualToString:@"tv5"])
+    else if([typeTVA.lowercaseString isEqualToString:@"tva5"])
         return prixHT*0.055f;
-    else if([typeTVA.lowercaseString isEqualToString:@"tv20"])
+    else if([typeTVA.lowercaseString isEqualToString:@"tva20"])
         return prixHT*0.2f;
     else NSAssert(false,@"Type TVA erroné");
     
