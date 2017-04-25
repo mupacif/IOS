@@ -9,6 +9,7 @@
 #import "TrajetViewController.h"
 #import <MapKit/MapKit.h>
 #import "Utils.h"
+#import "InformationsViewController.h"
 @interface TrajetViewController ()
 @property (weak, nonatomic) IBOutlet MKMapView *maMap;
 @property (strong, nonatomic) NSMutableArray* tbInformations;
@@ -158,7 +159,18 @@
     [self calculerTrajet];
     
 }
-
+/***
+ * Fais le lien avec la 3e vue qui affiche les informations contenant le chemain
+ * pour se rendre à la position
+ *
+ */
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepare for segue");
+    InformationsViewController * infos =(InformationsViewController *) [segue destinationViewController];
+    
+    infos.tbInformations = self.tbInformations;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

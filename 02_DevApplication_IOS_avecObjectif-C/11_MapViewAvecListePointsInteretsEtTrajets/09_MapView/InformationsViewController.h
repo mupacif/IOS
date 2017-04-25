@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface InformationsViewController : UIViewController
-
+@property (nonatomic,strong) NSArray* tbInformations;
 @end
