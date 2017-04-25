@@ -9,6 +9,7 @@
 #import "ResultatsRechercheViewContoller.h"
 #import "CellulePersonnaliseeTableViewCell.h"
 #import <MapKit/MapKit.h>
+#import "TrajetViewController.h"
 @interface ResultatsRechercheViewContoller ()
 @property (weak, nonatomic) IBOutlet UITableView *maTable;
 
@@ -65,6 +66,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //récupérer la destination de la transition(du segue)
+    TrajetViewController * destination = (TrajetViewController *)[segue destinationViewController];
+    
+    //chercher l'index de la ligne sélectionné dans la table
+    NSIndexPath* indexPath = [self.maTable indexPathForSelectedRow];
+    NSInteger indexLigne = indexPath.row;
+    
+    destination.destinationTrajet = self.itemsTrouves[indexLigne];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

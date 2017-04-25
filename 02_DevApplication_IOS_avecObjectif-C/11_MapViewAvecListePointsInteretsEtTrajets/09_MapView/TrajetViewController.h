@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TrajetViewController : UIViewController
-
+#import <MapKit/MapKit.h>
+@interface TrajetViewController : UIViewController <MKMapViewDelegate>
+//point qui recevra le information de position
+// l'endroit où l'on copnsidère se rendre
+@property (nonatomic,strong) MKMapItem* destinationTrajet;
 @end
