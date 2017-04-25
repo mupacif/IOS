@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ResultatsRechercheViewContoller.h"
+#import "Utils.h"
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *txtRecherche;
@@ -111,7 +112,7 @@
             return YES;
         }
         else{
-            [self afficherAlerteAvecTitre:@"Afficher détails" etMessage:@"Il n'y a pas de resultats à détailler"];
+            [Utils afficherAlerteAvecTitre:@"Afficher détails" etMessage:@"Il n'y a pas de resultats à détailler" etParent:self];
             return  NO;
         }
     }else
@@ -119,25 +120,7 @@
 }
 
 
--(void)afficherAlerteAvecTitre:(NSString*)titre etMessage:(NSString*)message
-{
-    UIAlertController* alert = [UIAlertController
-                                alertControllerWithTitle:titre
-                                message:message
-                                preferredStyle:UIAlertControllerStyleAlert];
-    //définir un bouton pour fermer l'alerte
-    UIAlertAction* actionFermeture = [UIAlertAction
-                                      actionWithTitle:@"fermer"
-                                      style:UIAlertActionStyleCancel
-                                      handler:nil];
-    
-    //afficher le bouton à l'alerte
-    [alert addAction:actionFermeture];
-    //afficher l'alerte
-    [self presentViewController:alert
-                       animated:YES
-                     completion:nil];
-}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // récupérer le destinataire de la transition

@@ -36,6 +36,11 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Permettez vous d&apos;avoir accès à votre position?</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>fr</string>
+		<string>en</string>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

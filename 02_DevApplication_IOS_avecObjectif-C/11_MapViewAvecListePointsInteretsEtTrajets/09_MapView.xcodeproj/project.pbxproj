@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC18473C1EAF43BA001068A4 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = EC18473B1EAF43BA001068A4 /* Utils.m */; };
+		EC18473F1EAF5C21001068A4 /* InformationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC18473E1EAF5C21001068A4 /* InformationsViewController.m */; };
 		ECA74B1F1EAE4727004CEEA3 /* TrajetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA74B1E1EAE4727004CEEA3 /* TrajetViewController.m */; };
 		ECDBFFE51EADFDD9001DC185 /* ResultatsRechercheViewContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDBFFE41EADFDD9001DC185 /* ResultatsRechercheViewContoller.m */; };
 		ECDBFFE81EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECDBFFE71EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m */; };
@@ -22,6 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC18473A1EAF43BA001068A4 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		EC18473B1EAF43BA001068A4 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+		EC18473D1EAF5C21001068A4 /* InformationsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationsViewController.h; sourceTree = "<group>"; };
+		EC18473E1EAF5C21001068A4 /* InformationsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationsViewController.m; sourceTree = "<group>"; };
 		ECA74B1D1EAE4727004CEEA3 /* TrajetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrajetViewController.h; sourceTree = "<group>"; };
 		ECA74B1E1EAE4727004CEEA3 /* TrajetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrajetViewController.m; sourceTree = "<group>"; };
 		ECDBFFE31EADFDD9001DC185 /* ResultatsRechercheViewContoller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultatsRechercheViewContoller.h; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 				ECF94F461EA9F6B000F9D9E5 /* Supporting Files */,
 				ECDBFFE61EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.h */,
 				ECDBFFE71EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m */,
+				EC18473A1EAF43BA001068A4 /* Utils.h */,
+				EC18473B1EAF43BA001068A4 /* Utils.m */,
+				EC18473D1EAF5C21001068A4 /* InformationsViewController.h */,
+				EC18473E1EAF5C21001068A4 /* InformationsViewController.m */,
 			);
 			path = 09_MapView;
 			sourceTree = "<group>";
@@ -198,7 +208,9 @@
 				ECF94F4B1EA9F6B000F9D9E5 /* AppDelegate.m in Sources */,
 				ECF94F481EA9F6B000F9D9E5 /* main.m in Sources */,
 				ECDBFFE81EAE09C1001DC185 /* CellulePersonnaliseeTableViewCell.m in Sources */,
+				EC18473C1EAF43BA001068A4 /* Utils.m in Sources */,
 				ECDBFFE51EADFDD9001DC185 /* ResultatsRechercheViewContoller.m in Sources */,
+				EC18473F1EAF5C21001068A4 /* InformationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
