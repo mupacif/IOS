@@ -47,6 +47,30 @@ const char* fichierDB_chaineC;
     fichierDB_chaineC= [self.fichierDB UTF8String];
 }
 - (IBAction)btnEcrireTouched:(id)sender {
+    //recuper en tant que chane c
+    fichierDB_chaineC= [self.fichierDB UTF8String];
+    //créer/ouvrir la base
+    int ret = sqlite3_open(fichierDB_chaineC, &db);
+    //la fonction sqlite3_open ouvre la base si
+    //elle existe et la créer sinon
+    //tester si la base a été crée
+    
+    
+    if(ret != SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec creation base de données"];
+        return;
+    }
+    //créer la réquete d'insertion
+    NSString* sql = [NSString stringWithFormat:@"insert into Societes(Societe)"
+                     "select 'Apple'"
+                     "union"
+                     "select 'Oracle'"
+                     "union"
+                     "select 'Microsoft'"
+                     ];
+    
+    [self ajouterTexteAffichage:@""]
 }
 
 - (IBAction)btnCreatebaseTouched:(id)sender {
@@ -62,19 +86,64 @@ const char* fichierDB_chaineC;
         //supprimer l'ancien fichier
         [fm removeItemAtPath:self.fichierDB error:nil];
     }
+    //recuper en tant que chane c
+    fichierDB_chaineC= [self.fichierDB UTF8String];
     //créer/ouvrir la base
     int ret = sqlite3_open(fichierDB_chaineC, &db);
     //la fonction sqlite3_open ouvre la base si
     //elle existe et la créer sinon
     //tester si la base a été crée
+    
+
     if(ret != SQLITE_OK)
     {
         [self ajouterTexteAffichage:@"Echec creation base de données"];
         return;
     }
     [self ajouterTexteAffichage:@"Creation de la base de données reussie"];
-
+    //création 1er table
+    char* msgErreur;
+    ret =sqlite3_exec(db,"create table if not exists Societes"
+                      "("
+                      "IdSociete integer primary key autoincrement,"
+                      "Societe text not null unique"
+                      ")",NULL, NULL, &msgErreur);
     
+    if(ret != SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:[NSString stringWithFormat:@"Echec création table Sociétés:                                  %s",msgErreur]];
+        //je ferme la base
+        sqlite3_close(db);
+        //je sorts
+        return;
+    }
+    [self ajouterTexteAffichage:@"Creation de la table Sociétés reussie"];
+    
+    //création 2e table
+    ret =sqlite3_exec(db,"create table if not exists Employes"
+                      "("
+                      "IdEmploye integer primary key autoincrement,"
+                      "Nom text not null,"
+                      "Prenom text not null,"
+                      "DateEmbauche date not null,"
+                      "Salaire float not null CHECK(Salaire > 0),"
+                      "IdSociete integer not null,"
+                      "constraint NomPrenomUnique unique(Nom,Prenom),"
+                      "foreign key (IdSociete) references Societes(idSociete) ON DELETE CASCADE"
+                      ")",NULL, NULL, &msgErreur);
+    
+    if(ret != SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:[NSString stringWithFormat:@"Echec création table Employes:                                  %s",msgErreur]];
+        //je ferme la base
+        sqlite3_close(db);
+        //je sorts
+        return;
+    }
+    
+    
+    sqlite3_close(db);
+    [self ajouterTexteAffichage:@"Creation de la table Employes reussie"];
 }
 -(void) ajouterTexteAffichage:(NSString*) text_a_ajouter
 {

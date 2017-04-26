@@ -13,7 +13,7 @@
 		EC18477A1EAF8404001068A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC1847781EAF8404001068A4 /* Main.storyboard */; };
 		EC18477C1EAF8404001068A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC18477B1EAF8404001068A4 /* Assets.xcassets */; };
 		EC18477F1EAF8404001068A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC18477D1EAF8404001068A4 /* LaunchScreen.storyboard */; };
-		EC1847881EAF846F001068A4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1847871EAF846F001068A4 /* libsqlite3.0.tbd */; };
+		ECFBA4791EB089940074C95F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EC1847871EAF846F001068A4 /* libsqlite3.0.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +28,7 @@
 		EC18477E1EAF8404001068A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC1847801EAF8404001068A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC1847871EAF846F001068A4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		ECFBA4771EB089020074C95F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC1847881EAF846F001068A4 /* libsqlite3.0.tbd in Frameworks */,
+				ECFBA4791EB089940074C95F /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +87,7 @@
 		EC1847861EAF846F001068A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ECFBA4771EB089020074C95F /* libsqlite3.tbd */,
 				EC1847871EAF846F001068A4 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
@@ -323,6 +325,7 @@
 				EC1847851EAF8404001068A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
