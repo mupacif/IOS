@@ -16,6 +16,7 @@
 @property (nonatomic, strong)NSString* repDocuments;
 //le nom du fichier contenant la base de données
 @property (nonatomic,strong) NSString* fichierDB;
+@property (weak, nonatomic) IBOutlet UIButton *btnLireEmplsApple;
 @end
 
 @implementation ViewController
@@ -62,11 +63,11 @@ const char* fichierDB_chaineC;
         return;
     }
     //créer la réquete d'insertion
-    NSString* sql = [NSString stringWithFormat:@"insert into Societes(Societe)"
+    NSString* sql = [NSString stringWithFormat:@"insert into Societes (Societe) "
                      "select 'Apple'"
                      "union "
                      "select 'Oracle'"
-                     "union"
+                     "union "
                      "select 'Microsoft'"
                      ];
     
@@ -81,7 +82,7 @@ const char* fichierDB_chaineC;
     //tester si la preparation du statement a reussi
     if(ret!= SQLITE_OK)
     {
-        [self ajouterTexteAffichage:@"Echec préparation statement"];
+        [self ajouterTexteAffichage:@"Echec préparation statement insertion société"];
         
         sqlite3_close(db);
         return;
@@ -89,13 +90,69 @@ const char* fichierDB_chaineC;
     
     //éxecuter le statement
     ret = sqlite3_step(stmt);
-    if(ret = SQLITE_OK)
-        [self ajouterTexteAffichage:@"\nLa requête d'insertion a bien été exécutée"];
+    if(ret == SQLITE_DONE)
+        [self ajouterTexteAffichage:@"\nLa requête d'insertion société a bien été exécutée"];
     else
     {
-      [self ajouterTexteAffichage:@"\nEchec insertion.\n Erreur signalée:"];
-      [self ajouterTexteAffichage:[NSString stringWithCString:sqlite3_errmsg(db) encoding:]]
+      [self ajouterTexteAffichage:@"\nEchec insertion société.\n Erreur signalée:"];
+      [self ajouterTexteAffichage:[NSString
+                                   stringWithCString:sqlite3_errmsg(db)
+                                   encoding:NSUTF8StringEncoding]];
     }
+    
+    //je supprime le statement (pour libérer ses ressources)
+    sqlite3_finalize(stmt);
+    ret =sqlite3_exec(db,"create table if not exists Employes"
+                      "("
+                      "IdEmploye integer primary key autoincrement,"
+                      "Nom text not null,"
+                      "Prenom text not null,"
+                      "DateEmbauche date not null,"
+                      "Salaire float not null CHECK(Salaire > 0),"
+                      "IdSociete integer not null,"
+                      "constraint NomPrenomUnique unique(Nom,Prenom),"
+                      "foreign key (IdSociete) references Societes(idSociete) ON DELETE CASCADE"
+                      ")",NULL, NULL, &msgErreur);
+
+    
+    sql = [NSString stringWithFormat:@"insert into Employes (Nom, Prenom, DateEmbauche, Salaire, IdSociete) "
+           "select 'Jobs', 'Steve', '2008-04-26', 1250, 1 " // où 1 est l'indentifiant de la société Apple
+           "union "
+           "select 'Martin', 'Julie', %@, 2000,(select IdSociete from Societes where Societe='Apple') "//sous-requête
+           "union "
+           "select 'Durand', 'Pierre', '1998-11-22', 3123, 3", [[NSDate date] description] // date d'aujourd'hui
+           ];
+    
+    [self ajouterTexteAffichage:@"\n Requête insertion employés"];
+    [self ajouterTexteAffichage:sql];
+    
+    sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    //tester si la preparation du statement a reussi
+    if(ret!= SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec préparation statement insertion employés"];
+        
+        sqlite3_close(db);
+        return;
+    }
+    
+    //éxecuter le statement
+    ret = sqlite3_step(stmt);
+    
+    if(ret == SQLITE_OK)
+        [self ajouterTexteAffichage:@"\nLa requête d'insertion des employés a bien été exécutée"];
+    else
+    {
+        [self ajouterTexteAffichage:@"\nEchec insertion Employés.\n Erreur signalée:"];
+        [self ajouterTexteAffichage:[NSString
+                                     stringWithCString:sqlite3_errmsg(db)
+                                     encoding:NSUTF8StringEncoding]];
+    }
+    
+    //je supprime le statement (pour libérer ses ressources)
+    sqlite3_finalize(stmt);
+    sqlite3_close(db); // pour dévérouiller les tables
+
 }
 
 - (IBAction)btnCreatebaseTouched:(id)sender {
@@ -174,6 +231,25 @@ const char* fichierDB_chaineC;
 {
     self.txtAffichage.text = [self.txtAffichage.text stringByAppendingFormat:@"%@\n",text_a_ajouter];
     
+}
+- (IBAction)btnLireTouched:(id)sender {
+    
+    fichierDB_chaineC= [self.fichierDB UTF8String];
+   
+    int ret = sqlite3_open(fichierDB_chaineC, &db);
+
+    if(ret != SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec creation base de données"];
+        return;
+    }
+    NSString* sql;
+    if(sender == self.btnLireEmplsApple)
+        sql=@"";
+    else
+        sql=@"";
+    
+ 
 }
 
 - (void)didReceiveMemoryWarning {
