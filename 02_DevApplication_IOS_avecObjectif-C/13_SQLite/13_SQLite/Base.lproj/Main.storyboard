@@ -46,9 +46,6 @@
                                 <rect key="frame" x="30" y="73" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Lire les employés"/>
-                                <connections>
-                                    <action selector="btnLireTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pxx-vL-Bcm"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-Ya-E76">
                                 <rect key="frame" x="190" y="73" width="46" height="30"/>
@@ -72,7 +69,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnLireEmplsApple" destination="ydZ-Ya-E76" id="SQH-Xp-Bnz"/>
                         <outlet property="txtAffichage" destination="Wuy-Lw-uPa" id="SF6-As-6qK"/>
                     </connections>
                 </viewController>

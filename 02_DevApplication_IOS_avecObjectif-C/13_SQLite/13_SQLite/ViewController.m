@@ -102,23 +102,15 @@ const char* fichierDB_chaineC;
     
     //je supprime le statement (pour libérer ses ressources)
     sqlite3_finalize(stmt);
-    ret =sqlite3_exec(db,"create table if not exists Employes"
-                      "("
-                      "IdEmploye integer primary key autoincrement,"
-                      "Nom text not null,"
-                      "Prenom text not null,"
-                      "DateEmbauche date not null,"
-                      "Salaire float not null CHECK(Salaire > 0),"
-                      "IdSociete integer not null,"
-                      "constraint NomPrenomUnique unique(Nom,Prenom),"
-                      "foreign key (IdSociete) references Societes(idSociete) ON DELETE CASCADE"
-                      ")",NULL, NULL, &msgErreur);
+
+
+
 
     
     sql = [NSString stringWithFormat:@"insert into Employes (Nom, Prenom, DateEmbauche, Salaire, IdSociete) "
            "select 'Jobs', 'Steve', '2008-04-26', 1250, 1 " // où 1 est l'indentifiant de la société Apple
            "union "
-           "select 'Martin', 'Julie', %@, 2000,(select IdSociete from Societes where Societe='Apple') "//sous-requête
+           "select 'Martin', 'Julie', '%@', 2000,(select IdSociete from Societes where Societe='Apple') "//sous-requête
            "union "
            "select 'Durand', 'Pierre', '1998-11-22', 3123, 3", [[NSDate date] description] // date d'aujourd'hui
            ];
@@ -126,11 +118,11 @@ const char* fichierDB_chaineC;
     [self ajouterTexteAffichage:@"\n Requête insertion employés"];
     [self ajouterTexteAffichage:sql];
     
-    sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    ret = sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
     //tester si la preparation du statement a reussi
     if(ret!= SQLITE_OK)
     {
-        [self ajouterTexteAffichage:@"Echec préparation statement insertion employés"];
+        [self ajouterTexteAffichage:@"Echec préparation statement insertion employés 2"];
         
         sqlite3_close(db);
         return;
@@ -139,7 +131,7 @@ const char* fichierDB_chaineC;
     //éxecuter le statement
     ret = sqlite3_step(stmt);
     
-    if(ret == SQLITE_OK)
+    if(ret == SQLITE_DONE)
         [self ajouterTexteAffichage:@"\nLa requête d'insertion des employés a bien été exécutée"];
     else
     {
@@ -211,7 +203,7 @@ const char* fichierDB_chaineC;
                       "Salaire float not null CHECK(Salaire > 0),"
                       "IdSociete integer not null,"
                       "constraint NomPrenomUnique unique(Nom,Prenom),"
-                      "foreign key (IdSociete) references Societes(idSociete) ON DELETE CASCADE"
+                      "foreign key (IdSociete) references Societes(IdSociete) ON DELETE CASCADE"
                       ")",NULL, NULL, &msgErreur);
     
     if(ret != SQLITE_OK)
@@ -248,6 +240,8 @@ const char* fichierDB_chaineC;
         sql=@"";
     else
         sql=@"";
+    
+    return;
     
  
 }
