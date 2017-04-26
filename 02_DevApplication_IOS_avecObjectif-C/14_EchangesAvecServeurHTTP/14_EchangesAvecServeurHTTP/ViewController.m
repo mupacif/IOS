@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "Util.h"
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *txtURL;
 
@@ -42,6 +42,65 @@
     //executer la tache
     [tache resume];
     NSLog(@"La tache a été lancée");
+    
+    //Etape 3
+    // envoyer des informations dormatées en JSON vers un serveur
+    //et récupérer se réponse
+    
+    //Pour pouvoir créer  une chaine json, je dois stocker
+    //les données dans un dictionnaire (ou un tableau de dictionnaire)
+    //Créer un dictionnaire contenant les données à envoyer au serveur
+    NSDictionary* dicInfos = @{
+                               @"nombre":@3,
+                               @"prefix":@"Ville"
+                               };
+    
+    //jsonifier ce dictionnaire
+    NSString* chaineJSON = [Util jsonifierObject:dicInfos];
+    NSLog(@"Chaine json : \n%@", chaineJSON);
+    //je veux envoyer la chaine JSON au serveur
+    //créer l'url
+    url = [NSURL URLWithString:@"http://192.168.21.100:8080/ServiceRESTavecJSON/monService/test"];
+    
+    //pour cela
+    //-je dois créer une requête
+    NSMutableURLRequest* requete =[[NSMutableURLRequest alloc] initWithURL:url];
+    //- configurer la requête (oréciser la méthode de transfer)
+    [requete setHTTPMethod:@"POST"];
+    //injecter les données dans laa requête attachés à des clées
+    //dans mon cas, il ne s'agit que d'une seule chaine à envoyer
+    //et je vais l'attacher à une seule clé, dont le nom
+    // et attetndu par le serveur
+    // notre serveur attend la clé "json"
+    NSString* queryString = [NSString stringWithFormat:@"json=%@", chaineJSON];
+    //avant d'injecter ce queryString dans la requête, je dois
+    // je transformer en
+    NSData* dataQueryString = [queryString dataUsingEncoding:NSUTF8StringEncoding];
+    //Créer la session de chargement en backgrouind du contenu
+    //d'une url
+    [requete setHTTPBody:dataQueryString];
+    
+    session = [NSURLSession sharedSession];
+    tache = [session dataTaskWithRequest:requete
+         completionHandler:^(NSData * donneesChargees, NSURLResponse * response,
+              NSError * error) {
+             if(error!=nil)
+             {
+                 NSLog(@"Erreur:%@", error);
+                 return;
+             }
+             if(donneesChargees == nil)
+             {
+                 NSLog(@"Aucune données n'a été chargée");
+                 return;
+             }
+             NSLog(@"--------------------------------------------------");
+             //débug: afficher les données recus
+             NSLog(@"%@",[NSString stringWithUTF8String:[donneesChargees bytes]]);
+             NSLog(@"--------------------------------------------------");
+         }];
+    //lancer la tache
+    [tache resume];
 }
 
 - (IBAction)btnChargerTouched:(id)sender {

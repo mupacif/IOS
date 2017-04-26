@@ -14,7 +14,7 @@
     NSError* erreur = nil;
     NSData* jsonData;
     @try {
-        [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted
+        jsonData = [NSJSONSerialization dataWithJSONObject:object options:NSJSONWritingPrettyPrinted
             error:&erreur];
         //est-ce que la jsonification a reussi?
         if(erreur != nil)
