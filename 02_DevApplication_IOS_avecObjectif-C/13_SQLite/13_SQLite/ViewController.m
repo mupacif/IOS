@@ -64,14 +64,33 @@ const char* fichierDB_chaineC;
     //créer la réquete d'insertion
     NSString* sql = [NSString stringWithFormat:@"insert into Societes(Societe)"
                      "select 'Apple'"
-                     "union"
+                     "union "
                      "select 'Oracle'"
                      "union"
                      "select 'Microsoft'"
                      ];
     
     [self ajouterTexteAffichage:@"\nRequete insertion:"];
-    [self ajouterTexteAffichage:sql]
+    [self ajouterTexteAffichage:sql];
+    //déclarer une variable qui contiendra un statement ("une enveloppe
+    //de mon ordre sql")
+    // Créer un statement
+    sqlite3_stmt* stmt;
+    //preparer le statement
+    sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    //tester si la preparation du statement a reussi
+    if(ret!= SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec préparation statement"];
+        
+        sqlite3_close(db);
+        return;
+    }
+    
+    //éxecuter le statement
+    ret = sqlite3_step(stmt);
+    if(ret = SQLITE_OK)
+        [self ajouterTexteAffichage:@"\n"]
 }
 
 - (IBAction)btnCreatebaseTouched:(id)sender {
