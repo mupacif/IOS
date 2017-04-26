@@ -26,10 +26,15 @@
     //je veux charger le contenu d'une page web
     //en utilisant une sessions asynchrine(le chargement aura lieu en background)
     NSURLSession * session = [NSURLSession sharedSession];
-    NSURL* url = [NSURL URLWithString:@"http://www.greceanu.com/default.html"];
+    NSURL* url = [NSURL URLWithString:urlText];
     
     // définir la tache à executer par la session
     NSURLSessionDataTask* tache = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable donneesChargees, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        //a-t-on chargé des données ..?
+        if(donneesChargees == nil)
+        {
+            NSLog(@"Aucune donnée n'a été chargée");
+        }
         NSLog(@"Données chargé");
         NSLog(@"%@",[NSString stringWithUTF8String:[donneesChargees bytes]]);
         //NSLog(@"%@",[NSString stringWithUTF8String:donneesChargees); En Binaire

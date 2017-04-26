@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC9EF0EA1EB0CFB500557EC0 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = EC9EF0E91EB0CFB500557EC0 /* Util.m */; };
 		ECFBA4881EB0B1070074C95F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFBA4871EB0B1070074C95F /* main.m */; };
 		ECFBA48B1EB0B1070074C95F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFBA48A1EB0B1070074C95F /* AppDelegate.m */; };
 		ECFBA48E1EB0B1070074C95F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFBA48D1EB0B1070074C95F /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC9EF0E81EB0CFB500557EC0 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		EC9EF0E91EB0CFB500557EC0 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		ECFBA4831EB0B1070074C95F /* 14_EchangesAvecServeurHTTP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 14_EchangesAvecServeurHTTP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECFBA4871EB0B1070074C95F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		ECFBA4891EB0B1070074C95F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				ECFBA4941EB0B1080074C95F /* LaunchScreen.storyboard */,
 				ECFBA4971EB0B1080074C95F /* Info.plist */,
 				ECFBA4861EB0B1070074C95F /* Supporting Files */,
+				EC9EF0E81EB0CFB500557EC0 /* Util.h */,
+				EC9EF0E91EB0CFB500557EC0 /* Util.m */,
 			);
 			path = 14_EchangesAvecServeurHTTP;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				ECFBA48E1EB0B1070074C95F /* ViewController.m in Sources */,
 				ECFBA48B1EB0B1070074C95F /* AppDelegate.m in Sources */,
 				ECFBA4881EB0B1070074C95F /* main.m in Sources */,
+				EC9EF0EA1EB0CFB500557EC0 /* Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +317,7 @@
 				ECFBA49C1EB0B1080074C95F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
