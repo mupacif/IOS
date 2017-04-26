@@ -90,7 +90,12 @@ const char* fichierDB_chaineC;
     //éxecuter le statement
     ret = sqlite3_step(stmt);
     if(ret = SQLITE_OK)
-        [self ajouterTexteAffichage:@"\n"]
+        [self ajouterTexteAffichage:@"\nLa requête d'insertion a bien été exécutée"];
+    else
+    {
+      [self ajouterTexteAffichage:@"\nEchec insertion.\n Erreur signalée:"];
+      [self ajouterTexteAffichage:[NSString stringWithCString:sqlite3_errmsg(db) encoding:]]
+    }
 }
 
 - (IBAction)btnCreatebaseTouched:(id)sender {
