@@ -9,12 +9,15 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *txtURL;
+
+@property (weak, nonatomic) IBOutlet UIWebView *maWebView;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {	
+- (void)viewDidLoad {
     [super viewDidLoad];
    //étape 1
     //je veux charger le contenu d'une page web
@@ -33,7 +36,24 @@
     NSLog(@"La tache a été lancée");
 }
 
+- (IBAction)btnChargerTouched:(id)sender {
+    [self afficherPageWeb: self.txtURL.text];
+}
 
+-(void) afficherPageWeb:(NSString*) urlTexte
+{
+    //plus haut j'ai utilisé la méthode
+    // [NSURL URLWithString:...]
+    //Mais on peut créer une NSURL aussi avec
+    NSURL* url = [[NSURL alloc] initWithString:urlTexte];
+    //pour afficher la page il faut d'abord la charger
+    //pour charger la page; il faut commencer par créer une
+    //requête
+    NSURLRequest* requete = [NSURLRequest requestWithURL:url];
+    //envoyer ma requête vers le serveur et charger sa réponse
+    //dans la WebView
+    [self.maWebView loadRequest:requete];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
