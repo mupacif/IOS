@@ -70,7 +70,8 @@ const char* fichierDB_chaineC;
                      "select 'Microsoft'"
                      ];
     
-    [self ajouterTexteAffichage:@""]
+    [self ajouterTexteAffichage:@"\nRequete insertion:"];
+    [self ajouterTexteAffichage:sql]
 }
 
 - (IBAction)btnCreatebaseTouched:(id)sender {
