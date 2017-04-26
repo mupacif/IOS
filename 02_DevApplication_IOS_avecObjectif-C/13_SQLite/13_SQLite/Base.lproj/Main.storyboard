@@ -36,23 +36,42 @@
                                     <action selector="btnEcrireTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eUo-1T-uxz"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="txtAffichage" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-Lw-uPa">
-                                <rect key="frame" x="16" y="112" width="288" height="448"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="txtAffichage" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wuy-Lw-uPa">
+                                <rect key="frame" x="16" y="171" width="288" height="389"/>
                                 <color key="backgroundColor" red="0.80604383680555558" green="1" blue="0.93878498468341254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5c-nw-3R8">
-                                <rect key="frame" x="30" y="73" width="46" height="30"/>
+                                <rect key="frame" x="30" y="73" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Lire les employés"/>
+                                <connections>
+                                    <action selector="btnLireTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Fy-vm-0jg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydZ-Ya-E76">
-                                <rect key="frame" x="190" y="73" width="46" height="30"/>
+                                <rect key="frame" x="190" y="73" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Lire employes"/>
                                 <connections>
-                                    <action selector="btnLireTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0jU-KU-YzZ"/>
+                                    <action selector="btnLireTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vGE-zz-ebo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-Iz-Wfd">
+                                <rect key="frame" x="184" y="111" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="RAZ"/>
+                                <connections>
+                                    <action selector="btnRAZTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m7H-yW-09z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgC-da-0Gc">
+                                <rect key="frame" x="30" y="108" width="159" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Supprimer emps Apple"/>
+                                <connections>
+                                    <action selector="btnSupprimerTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTD-Xm-lsi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -69,12 +88,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnLireEmplsApple" destination="ydZ-Ya-E76" id="Hns-7R-8T4"/>
                         <outlet property="txtAffichage" destination="Wuy-Lw-uPa" id="SF6-As-6qK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+            <point key="canvasLocation" x="116.25" y="123.59154929577466"/>
         </scene>
     </scenes>
 </document>

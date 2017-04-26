@@ -237,13 +237,104 @@ const char* fichierDB_chaineC;
     }
     NSString* sql;
     if(sender == self.btnLireEmplsApple)
-        sql=@"";
+        sql=@"select IdEmploye, Prenom, Nom, DateEmbauche, Salaire, Societe "
+        "from Employes, Societes "
+        "where Employes.IdSociete = Societes.IdSociete "
+        "and Societe == 'Apple' ";
     else
-        sql=@"";
+        sql=@"select IdEmploye, Prenom, Nom, DateEmbauche, Salaire, Societe "
+        "from Employes, Societes "
+        "where Employes.IdSociete = Societes.IdSociete";
     
-    return;
+   
+    [self ajouterTexteAffichage:@"\nRequête insertion employés:"];
+    [self ajouterTexteAffichage:sql];
     
+    sqlite3_stmt* stmt;
+    //preparer le statement
+    ret = sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    //tester si la preparation du statement a reussi
+    if(ret!= SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec préparation statement select"];
+        
+        sqlite3_close(db);
+        return;
+    }
+
+    [self ajouterTexteAffichage:@"Resultats sélection:"];
+    //recuperer le nombre de colonnes sélectionnées
+    int nbColonnes = sqlite3_column_count(stmt);
+    NSString* ligne;
+    while(sqlite3_step(stmt) == SQLITE_ROW)
+    {
+        //le contenu reférencé n'est pas modifiable
+        const char* chaineC;
+        
+        ligne = @"";
+        for(int i=0;i <nbColonnes;i++)
+        {
+            
+            chaineC=sqlite3_column_text(stmt,i);
+            //créer une chaine Objectif-C
+            NSString* valeur = [[NSString alloc] initWithUTF8String:chaineC];
+            if(i == 0)
+            ligne = [NSString stringWithFormat:@"%@%@",ligne,valeur];
+            else
+                ligne = [NSString stringWithFormat:@"%@, %@",ligne,valeur];
+
+        }
+        
+        [self ajouterTexteAffichage:ligne];
+    }
  
+}
+- (IBAction)btnRAZTouched:(id)sender {
+self.txtAffichage.text = @"";
+}
+- (IBAction)btnSupprimerTouched:(id)sender {
+    fichierDB_chaineC= [self.fichierDB UTF8String];
+    
+    int ret = sqlite3_open(fichierDB_chaineC, &db);
+    
+    if(ret != SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec creation base de données"];
+        return;
+    }
+    NSString* sql=[NSString stringWithFormat:@"delete from Employes "
+                   "where IdSociete = (select IdSociete from Societes where Societe='Apple')"];
+    
+    sqlite3_stmt* stmt;
+    //preparer le statement
+    ret = sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+    //tester si la preparation du statement a reussi
+    if(ret!= SQLITE_OK)
+    {
+        [self ajouterTexteAffichage:@"Echec préparation statement suppression"];
+        
+        sqlite3_close(db);
+        return;
+    }
+    ret = sqlite3_step(stmt);
+    
+    if(ret == SQLITE_DONE)
+        [self ajouterTexteAffichage:@"\nLa requête de suppression des employés Apple a bien été exécutée"];
+    else
+    {
+        [self ajouterTexteAffichage:@"\nEchec suppression Employés Apple.\n Erreur signalée:"];
+        [self ajouterTexteAffichage:[NSString
+                                     stringWithCString:sqlite3_errmsg(db)
+                                     encoding:NSUTF8StringEncoding]];
+    }
+    
+    //je supprime le statement (pour libérer ses ressources)
+    sqlite3_finalize(stmt);
+    sqlite3_close(db); // pour dévérouiller les tables
+
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
