@@ -19,6 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString* urlText = @"http://www.apple.com";
+    self.txtURL.text = urlText;
+    [self afficherPageWeb:urlText];
    //étape 1
     //je veux charger le contenu d'une page web
     //en utilisant une sessions asynchrine(le chargement aura lieu en background)
