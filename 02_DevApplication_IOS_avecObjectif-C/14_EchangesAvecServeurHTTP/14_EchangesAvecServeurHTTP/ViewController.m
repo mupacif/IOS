@@ -94,13 +94,35 @@
                  NSLog(@"Aucune données n'a été chargée");
                  return;
              }
-             NSLog(@"--------------------------------------------------");
-             //débug: afficher les données recus
+             
+             //débug: afficher les données recus	
              NSLog(@"%@",[NSString stringWithUTF8String:[donneesChargees bytes]]);
-             NSLog(@"--------------------------------------------------");
+             
+             //récuperer le tableau envoyé par le serveur à partir
+             //de la chaine JSON
+             NSError* erreur = nil;
+             NSArray* tb = [NSJSONSerialization JSONObjectWithData:donneesChargees options:0 error:&erreur ];
+             
+             //parcourir le tableau de dictionnaire et afficher
+             //le contentu de chaque dictionnaire
+             NSDictionary* dictionnaire;
+             for(int i=0;i<tb.count;i++)
+             {
+                 dictionnaire =tb[i];
+                 NSLog(@"Id:%d",[[dictionnaire objectForKey:@"id"] intValue]);
+                 
+                 NSLog(@"Nom:%@",[dictionnaire objectForKey:@"nom"]);
+                 NSLog(@"Population:%d",[[dictionnaire objectForKey:@"population"] intValue]);
+                 
+                 
+             }
+             
          }];
     //lancer la tache
     [tache resume];
+    
+   
+    
 }
 
 - (IBAction)btnChargerTouched:(id)sender {
