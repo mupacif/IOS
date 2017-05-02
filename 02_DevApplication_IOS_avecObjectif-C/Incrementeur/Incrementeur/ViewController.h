@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
+#import "HomeViewController.h"
+#import <sqlite3.h>
 
 @interface ViewController : UIViewController
-
+@property (nonatomic,strong)NSString* textRecu;
 
 @end
 

@@ -347,6 +347,7 @@
 				EC2563271EB21E08000AE465 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

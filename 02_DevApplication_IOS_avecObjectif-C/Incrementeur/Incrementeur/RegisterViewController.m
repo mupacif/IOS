@@ -17,8 +17,9 @@
 @property (nonatomic,strong) NSString* fichierDB;
 @end
 
-sqlite3* db;
+
 @implementation RegisterViewController
+sqlite3* db;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +30,7 @@ sqlite3* db;
     
     NSArray* tbChemins = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory                                                             ,NSUserDomainMask,YES);
   
-    self.fichierDB = [tbChemins[0] stringByAppendingPathComponent:@"UsersDb.db"];
+    self.fichierDB = [tbChemins[0] stringByAppendingPathComponent:@"UsersDb2.db"];
     
 
 }
@@ -54,7 +55,7 @@ sqlite3* db;
     }
     if([msg length] == 0)
     {
-        self.registerUser;
+        [self registerUser];
     }else{
          [Utils afficherAlerteAvecTitre:@"Error" etMessage:msg etParent:self];
     }
@@ -70,6 +71,7 @@ sqlite3* db;
         self.creationTableUser;
         //[fm removeItemAtPath:self.fichierDB error:nil];
     }else{
+         self.creationTableUser;
         NSLog(@"UsersDatabase exists already");
         
         const char * nomFile;
@@ -81,16 +83,18 @@ sqlite3* db;
             NSLog(@"impossible d'ouvrir le fichier contenant les users");
             return;
         }
-        
-        NSString* sql = [NSString stringWithFormat:@"insert into User (login,password,money) "
-                         "select '%@','%@','%d'",self.loginTxt.text,
+        NSString* salt =[Utils randomStringWithLength:32];
+        NSString* sql = [NSString stringWithFormat:@"insert into User (login,password,passwordSalt,money) "
+                         "select '%@','%@','%@','%d'",self.loginTxt.text,
                          [Utils
-                          hashString:self.passwordTxt.text withSalt:[Utils randomStringWithLength:32]]
+                          hashString:self.passwordTxt.text withSalt:salt],salt
                          ,
                          0];
+        
+        NSLog(@"register : sql=%@",sql);
         sqlite3_stmt* stmt;
         //preparer le statement
-        sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
+        ret = sqlite3_prepare_v2(db, [sql UTF8String], -1, &stmt, NULL);
         
         if(ret!= SQLITE_OK)
         {
@@ -122,6 +126,7 @@ sqlite3* db;
    
     nomFile = [self.fichierDB UTF8String];
     
+    NSLog(@"directory du fichier sql:%@",self.fichierDB);
     int ret = sqlite3_open(nomFile, &db);
     if(ret != SQLITE_OK)
     {
@@ -133,8 +138,9 @@ sqlite3* db;
                       "("
                       "idUser integer primary key autoincrement,"
                       "login text not null unique,"
-                      "password text not null,"
-                      "money integer not null"
+                      "password text,"
+                      "passwordSalt txt,"
+                      "money integer"
                       ")",NULL, NULL, NULL);
     if(ret != SQLITE_OK)
     {
@@ -145,7 +151,7 @@ sqlite3* db;
         return;
     }
     sqlite3_close(db);
-    NSLog(@"Creation de la table empoye reussi");
+    NSLog(@"Creation de la table user reussi");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
