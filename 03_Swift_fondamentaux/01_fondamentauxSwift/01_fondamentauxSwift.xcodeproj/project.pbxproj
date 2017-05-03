@@ -23,6 +23,7 @@
 		EC4BE9CF1EB9C1E900A64567 /* 01_constantes_et_variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01_constantes_et_variables.playground; sourceTree = "<group>"; };
 		ECD217661EB9E0A200DFA360 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; };
 		ECD217671EB9ED5E00DFA360 /* Collections.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Collections.playground; sourceTree = "<group>"; };
+		ECD217681EBA03FE00DFA360 /* 02_optionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02_optionals.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 				EC4BE9CF1EB9C1E900A64567 /* 01_constantes_et_variables.playground */,
 				ECD217661EB9E0A200DFA360 /* test.playground */,
 				ECD217671EB9ED5E00DFA360 /* Collections.playground */,
+				ECD217681EBA03FE00DFA360 /* 02_optionals.playground */,
 			);
 			path = 01_fondamentauxSwift;
 			sourceTree = "<group>";
