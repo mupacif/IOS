@@ -26,4 +26,10 @@ nbEnfants = nil
 
 //par défaut, la valeur d'un ptional non
 //initialisé est nil:
-var société: String? 
+var société: String?
+
+//pour tester si un optional contient une valmeur
+//on peut utiliser 2 méthodes bas"es sur un test
+// 'if'
+
+var nb: Int
