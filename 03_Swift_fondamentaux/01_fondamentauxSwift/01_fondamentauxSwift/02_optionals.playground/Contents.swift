@@ -14,5 +14,16 @@
 //retourner un optional
 //Exemple
 
-var nomber = Int("121");
+var nombre = Int("121");
+nombre = Int("Bonjour");
 
+//var nb= nil // ni n'est pas accepté si la 
+              //variable n'est pas un optional
+
+// Déclarer et attribuer une valeur à un ptional
+var nbEnfants: Int? = 3
+nbEnfants = nil
+
+//par défaut, la valeur d'un ptional non
+//initialisé est nil:
+var société: String? 
