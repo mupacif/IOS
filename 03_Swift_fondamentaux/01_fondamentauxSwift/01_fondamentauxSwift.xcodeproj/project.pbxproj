@@ -19,11 +19,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EC18D1871EBB200500E21865 /* controlFlow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = controlFlow.playground; sourceTree = "<group>"; };
+		EC18D1881EBB396C00E21865 /* functions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = functions.playground; sourceTree = "<group>"; };
+		EC18D1891EBB5AAC00E21865 /* 05_arrays.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05_arrays.playground; sourceTree = "<group>"; };
 		EC4BE9C51EB9C15500A64567 /* 01_fondamentauxSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 01_fondamentauxSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4BE9CF1EB9C1E900A64567 /* 01_constantes_et_variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01_constantes_et_variables.playground; sourceTree = "<group>"; };
 		ECD217661EB9E0A200DFA360 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; };
 		ECD217671EB9ED5E00DFA360 /* Collections.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Collections.playground; sourceTree = "<group>"; };
 		ECD217681EBA03FE00DFA360 /* 02_optionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02_optionals.playground; sourceTree = "<group>"; };
+		ECD217691EBA1A9500DFA360 /* 03_Opérateurs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "03_Opérateurs.playground"; sourceTree = "<group>"; };
+		ECE9FEC51EBB120800C2BEBE /* 04_chainesDeCaractères.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "04_chainesDeCaractères.playground"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,11 @@
 				ECD217661EB9E0A200DFA360 /* test.playground */,
 				ECD217671EB9ED5E00DFA360 /* Collections.playground */,
 				ECD217681EBA03FE00DFA360 /* 02_optionals.playground */,
+				ECD217691EBA1A9500DFA360 /* 03_Opérateurs.playground */,
+				ECE9FEC51EBB120800C2BEBE /* 04_chainesDeCaractères.playground */,
+				EC18D1871EBB200500E21865 /* controlFlow.playground */,
+				EC18D1881EBB396C00E21865 /* functions.playground */,
+				EC18D1891EBB5AAC00E21865 /* 05_arrays.playground */,
 			);
 			path = 01_fondamentauxSwift;
 			sourceTree = "<group>";

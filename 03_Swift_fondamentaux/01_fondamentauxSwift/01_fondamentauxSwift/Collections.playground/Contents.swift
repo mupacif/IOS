@@ -27,10 +27,54 @@ for (index, value) in shoppingList.enumerated() {
     print("Item \(index + 1): \(value)")
 }
 
-
+//sets 
 var letters = Set<Character>()
 print("letters is of type Set<Character> with \(letters.count) items.")
 
 var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
 
 favoriteGenres.contains("Funk")
+
+letters.insert("z")
+letters.insert("a")
+for l in letters.sorted()
+{
+    print(l)
+}
+
+//opérations logiques
+
+let oddDigits: Set = [1, 3, 5, 7, 9]
+let evenDigits: Set = [0, 2, 4, 6, 8]
+let singleDigitPrimeNumbers: Set = [2, 3, 5, 7]
+
+oddDigits.union(evenDigits).sorted()
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+oddDigits.intersection(evenDigits).sorted()
+// []
+oddDigits.subtracting(singleDigitPrimeNumbers).sorted()
+// [1, 9]
+oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
+// [1, 2, 9]
+
+
+let houseAnimals: Set = ["🐶", "🐱"]
+let farmAnimals: Set = ["🐮", "🐔", "🐑", "🐶", "🐱"]
+let cityAnimals: Set = ["🐦", "🐭"]
+
+houseAnimals.isSubset(of: farmAnimals)
+// true
+farmAnimals.isSuperset(of: houseAnimals)
+// true
+farmAnimals.isDisjoint(with: cityAnimals)
+// true
+
+
+//Dictionairies
+
+var namesOfIntegers = [Int: String]()
+
+namesOfIntegers[16] = "sixteen"
+// namesOfIntegers now contains 1 key-value pair
+namesOfIntegers = [:]
+// namesOfIntegers is once again an empty dictionary of type [Int: String]
