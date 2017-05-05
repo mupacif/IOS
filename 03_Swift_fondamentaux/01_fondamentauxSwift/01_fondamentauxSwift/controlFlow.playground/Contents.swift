@@ -26,14 +26,14 @@ let somePoint = (6, 0)
 switch somePoint {
 case (0, 0):
     print("\(somePoint) is at the origin")
-case (_, 0):
-    print("\(somePoint) is on the x-axis")
+//case (_, 0):
+  //  print("\(somePoint) is on the x-axis")
 case (0, _):
     print("\(somePoint) is on the y-axis")
 case (-2...2, -2...2):
     print("\(somePoint) is inside the box")
 case (let dist, 0),(0, let dist):
-    print("Passe par l'origine")
+    print("Passe par l'origine à une distance \(dist)")
 case let(x,y) where x == 2*y:
     print("magic in the sky")
 case let(x,y):

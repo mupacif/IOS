@@ -43,3 +43,46 @@ setChiffres.contains("jee")
 
 setChiffres.sorted(by:>)
 
+setChiffres.sorted(by:{$0>$1})
+
+setChiffres.sorted(by:{a1,a2 in a1>a2})
+
+//Dictionaire
+
+var dicCodesCouleurs:[Int:String]=[Int:String]()
+
+dicCodesCouleurs[255] = "bleu"
+dicCodesCouleurs[16250] = "vert"
+dicCodesCouleurs[0xffff] = "rouge"
+
+
+dicCodesCouleurs
+
+var dicCapitales = ["Belgique":"Bruxelles","Angleterre":"Londre","USA":"washigton"]
+
+dicCapitales["USA"]=nil
+dicCapitales
+
+
+//parcour
+
+for (clé,valeur) in dicCapitales
+{
+    print("\(clé):\(valeur)")
+}
+
+for clé in dicCapitales.keys
+{
+    print("\(clé)")
+}
+
+for valeur in dicCapitales.values
+{
+    print("\(valeur)")
+}
+
+
+var tbKeys = [String](dicCapitales.keys)
+
+var tbValues = [String](dicCapitales.values)
+

@@ -50,17 +50,19 @@ func Ff2(b:Bool)->(Int)->Int
 //closure
 Ff2(b:2<1)(2)
 
-var enclo : (Int,Int)->Int = {i1,i2 in i1*i2}
-
+//var enclo : (Int,Int)->Int = {(i1:Int,i2:Int) in i1*i2}
+//var enclo : (Int,Int)->Int = {(i1,i2) in i1*i2}
+//var enclo : (Int,Int)->Int = {i1, i2 in return i1*i2}
+var enclo : (Int,Int)->Int = {i1, i2 in i1*i2}
 var enclo2 : (Int,Int)->Int = {$0*$1}
 
 
 enclo(4,2)
-enclo(8,9)
+enclo2(8,9)
 
-func fClose(_ closure: (Int,Int)->Bool)->Bool
+func fClose(_ closure: (String,String)->Bool)->Bool
 {
-    var a=5, b = 0
+    var a="aaa", b = "bbb"
     return closure(a,b);
 }
 
@@ -85,4 +87,45 @@ var incrementer = fnt(forIncrement : 5)
 incrementer()
 incrementer()
 incrementer()
+
+
+// escape when the function will be caleld later
+
+
+
+
+var funcList=[()->Int]()
+func addFuck(f2Add:@escaping ()->Int)
+{
+    
+    funcList.append(f2Add)
+}
+
+
+addFuck(f2Add: {1})
+addFuck(f2Add: {2})
+
+for i in funcList
+{
+    i()
+}
+//récupérer la première closure dans la liste
+funcList.first?()
+
+
+
+//autoclosure :autoclosure lets you delay evaluation, because the code inside isn’t run until you call the closure. 
+
+var autoClo = { print("hoho") }
+
+//@autoclosure permet d'écrire l'autoclosure comme un string
+//func autoCloFunc(auto:()->Void)
+func autoCloFunc(auto:@autoclosure ()->Void)
+{
+    auto()
+}
+
+autoCloFunc(auto: print("hohoh"))
+
+
 

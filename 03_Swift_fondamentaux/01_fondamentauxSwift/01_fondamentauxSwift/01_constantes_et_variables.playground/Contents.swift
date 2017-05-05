@@ -242,6 +242,8 @@ typealias tuple = (String,Int)
 var ugu:tuple = ("",0)
 
 
+//les optionnels 
+
 
 
 

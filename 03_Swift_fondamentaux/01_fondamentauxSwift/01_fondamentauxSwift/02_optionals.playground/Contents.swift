@@ -81,3 +81,27 @@ if leType.hasPrefix("Optional")
 {
     print("optional")
 }
+
+//un Wrapping
+//test existence d"optionels
+var vr: String?
+vr = "yosh"
+if vr != nil
+{
+  print("\(vr!)")
+}
+
+//méthode 2
+if let yoyo = vr
+{
+    print("\(yoyo)")
+}
+
+
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString! // requires an exclamation mark
+
+let assumedString: String! = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString // no need for an exclamation mark
+
+print("\(assumedString) \(forcedString)")

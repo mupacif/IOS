@@ -24,11 +24,15 @@
 		EC18D1891EBB5AAC00E21865 /* 05_arrays.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 05_arrays.playground; sourceTree = "<group>"; };
 		EC4BE9C51EB9C15500A64567 /* 01_fondamentauxSwift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = 01_fondamentauxSwift; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4BE9CF1EB9C1E900A64567 /* 01_constantes_et_variables.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 01_constantes_et_variables.playground; sourceTree = "<group>"; };
+		EC6EF1F11EBCB0EB001A00EB /* enumération.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "enumération.playground"; sourceTree = "<group>"; };
+		EC6EF1F21EBCB329001A00EB /* ClassesAndStructures.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ClassesAndStructures.playground; sourceTree = "<group>"; };
+		EC6EF1F31EBCC498001A00EB /* 07_fonctions.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 07_fonctions.playground; sourceTree = "<group>"; };
 		ECD217661EB9E0A200DFA360 /* test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = test.playground; sourceTree = "<group>"; };
 		ECD217671EB9ED5E00DFA360 /* Collections.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Collections.playground; sourceTree = "<group>"; };
 		ECD217681EBA03FE00DFA360 /* 02_optionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02_optionals.playground; sourceTree = "<group>"; };
 		ECD217691EBA1A9500DFA360 /* 03_Opérateurs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "03_Opérateurs.playground"; sourceTree = "<group>"; };
 		ECE9FEC51EBB120800C2BEBE /* 04_chainesDeCaractères.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "04_chainesDeCaractères.playground"; sourceTree = "<group>"; };
+		ECFA221F1EBC6F6800823F02 /* 06_control_flow.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 06_control_flow.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,10 @@
 				EC18D1871EBB200500E21865 /* controlFlow.playground */,
 				EC18D1881EBB396C00E21865 /* functions.playground */,
 				EC18D1891EBB5AAC00E21865 /* 05_arrays.playground */,
+				ECFA221F1EBC6F6800823F02 /* 06_control_flow.playground */,
+				EC6EF1F11EBCB0EB001A00EB /* enumération.playground */,
+				EC6EF1F21EBCB329001A00EB /* ClassesAndStructures.playground */,
+				EC6EF1F31EBCC498001A00EB /* 07_fonctions.playground */,
 			);
 			path = 01_fondamentauxSwift;
 			sourceTree = "<group>";
