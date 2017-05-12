@@ -1,0 +1,345 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECD455BE1EC4B27B004C7EA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD455BD1EC4B27B004C7EA1 /* AppDelegate.swift */; };
+		ECD455C01EC4B27B004C7EA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD455BF1EC4B27B004C7EA1 /* ViewController.swift */; };
+		ECD455C31EC4B27B004C7EA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD455C11EC4B27B004C7EA1 /* Main.storyboard */; };
+		ECD455C51EC4B27B004C7EA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECD455C41EC4B27B004C7EA1 /* Assets.xcassets */; };
+		ECD455C81EC4B27B004C7EA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECD455C61EC4B27B004C7EA1 /* LaunchScreen.storyboard */; };
+		ECD455D11EC4B36E004C7EA1 /* Gateau.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD455D01EC4B36E004C7EA1 /* Gateau.swift */; };
+		ECD455D61EC4B552004C7EA1 /* gateauChocolat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD455D21EC4B552004C7EA1 /* gateauChocolat.jpg */; };
+		ECD455D71EC4B552004C7EA1 /* meringue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD455D31EC4B552004C7EA1 /* meringue.jpg */; };
+		ECD455D81EC4B552004C7EA1 /* tartePeches.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD455D41EC4B552004C7EA1 /* tartePeches.jpg */; };
+		ECD455D91EC4B552004C7EA1 /* tiramisu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECD455D51EC4B552004C7EA1 /* tiramisu.jpg */; };
+		ECFA5B3C1EC59A7D00493174 /* MaCellule.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA5B3B1EC59A7D00493174 /* MaCellule.swift */; };
+		ECFA5B3E1EC5A7DC00493174 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECFA5B3D1EC5A7DC00493174 /* DetailsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ECD455BA1EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "06_UITableView_CelllutePersonnalis\"e.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECD455BD1EC4B27B004C7EA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ECD455BF1EC4B27B004C7EA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECD455C21EC4B27B004C7EA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ECD455C41EC4B27B004C7EA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ECD455C71EC4B27B004C7EA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ECD455C91EC4B27B004C7EA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECD455D01EC4B36E004C7EA1 /* Gateau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gateau.swift; sourceTree = "<group>"; };
+		ECD455D21EC4B552004C7EA1 /* gateauChocolat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = gateauChocolat.jpg; path = ../../../../gateaux/gateauChocolat.jpg; sourceTree = "<group>"; };
+		ECD455D31EC4B552004C7EA1 /* meringue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = meringue.jpg; path = ../../../../gateaux/meringue.jpg; sourceTree = "<group>"; };
+		ECD455D41EC4B552004C7EA1 /* tartePeches.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tartePeches.jpg; path = ../../../../gateaux/tartePeches.jpg; sourceTree = "<group>"; };
+		ECD455D51EC4B552004C7EA1 /* tiramisu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = tiramisu.jpg; path = ../../../../gateaux/tiramisu.jpg; sourceTree = "<group>"; };
+		ECFA5B3B1EC59A7D00493174 /* MaCellule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaCellule.swift; sourceTree = "<group>"; };
+		ECFA5B3D1EC5A7DC00493174 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECD455B71EC4B27B004C7EA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECD455B11EC4B27B004C7EA1 = {
+			isa = PBXGroup;
+			children = (
+				ECD455BC1EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e */,
+				ECD455BB1EC4B27B004C7EA1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ECD455BB1EC4B27B004C7EA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECD455BA1EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECD455BC1EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e */ = {
+			isa = PBXGroup;
+			children = (
+				ECD455CF1EC4B331004C7EA1 /* images */,
+				ECD455BD1EC4B27B004C7EA1 /* AppDelegate.swift */,
+				ECD455BF1EC4B27B004C7EA1 /* ViewController.swift */,
+				ECD455C11EC4B27B004C7EA1 /* Main.storyboard */,
+				ECD455C41EC4B27B004C7EA1 /* Assets.xcassets */,
+				ECD455C61EC4B27B004C7EA1 /* LaunchScreen.storyboard */,
+				ECD455C91EC4B27B004C7EA1 /* Info.plist */,
+				ECD455D01EC4B36E004C7EA1 /* Gateau.swift */,
+				ECFA5B3B1EC59A7D00493174 /* MaCellule.swift */,
+				ECFA5B3D1EC5A7DC00493174 /* DetailsViewController.swift */,
+			);
+			path = "06_UITableView_CelllutePersonnalis\"e";
+			sourceTree = "<group>";
+		};
+		ECD455CF1EC4B331004C7EA1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				ECD455D21EC4B552004C7EA1 /* gateauChocolat.jpg */,
+				ECD455D31EC4B552004C7EA1 /* meringue.jpg */,
+				ECD455D41EC4B552004C7EA1 /* tartePeches.jpg */,
+				ECD455D51EC4B552004C7EA1 /* tiramisu.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECD455B91EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECD455CC1EC4B27B004C7EA1 /* Build configuration list for PBXNativeTarget "06_UITableView_CelllutePersonnalis"e" */;
+			buildPhases = (
+				ECD455B61EC4B27B004C7EA1 /* Sources */,
+				ECD455B71EC4B27B004C7EA1 /* Frameworks */,
+				ECD455B81EC4B27B004C7EA1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "06_UITableView_CelllutePersonnalis\"e";
+			productName = "06_UITableView_CelllutePersonnalis\"e";
+			productReference = ECD455BA1EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECD455B21EC4B27B004C7EA1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = etudiant;
+				TargetAttributes = {
+					ECD455B91EC4B27B004C7EA1 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = ECD455B51EC4B27B004C7EA1 /* Build configuration list for PBXProject "06_UITableView_CelllutePersonnalis"e" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ECD455B11EC4B27B004C7EA1;
+			productRefGroup = ECD455BB1EC4B27B004C7EA1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECD455B91EC4B27B004C7EA1 /* 06_UITableView_CelllutePersonnalis"e */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECD455B81EC4B27B004C7EA1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD455C81EC4B27B004C7EA1 /* LaunchScreen.storyboard in Resources */,
+				ECD455D61EC4B552004C7EA1 /* gateauChocolat.jpg in Resources */,
+				ECD455D81EC4B552004C7EA1 /* tartePeches.jpg in Resources */,
+				ECD455C51EC4B27B004C7EA1 /* Assets.xcassets in Resources */,
+				ECD455C31EC4B27B004C7EA1 /* Main.storyboard in Resources */,
+				ECD455D71EC4B552004C7EA1 /* meringue.jpg in Resources */,
+				ECD455D91EC4B552004C7EA1 /* tiramisu.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECD455B61EC4B27B004C7EA1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECD455C01EC4B27B004C7EA1 /* ViewController.swift in Sources */,
+				ECD455BE1EC4B27B004C7EA1 /* AppDelegate.swift in Sources */,
+				ECFA5B3C1EC59A7D00493174 /* MaCellule.swift in Sources */,
+				ECD455D11EC4B36E004C7EA1 /* Gateau.swift in Sources */,
+				ECFA5B3E1EC5A7DC00493174 /* DetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ECD455C11EC4B27B004C7EA1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD455C21EC4B27B004C7EA1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ECD455C61EC4B27B004C7EA1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECD455C71EC4B27B004C7EA1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ECD455CA1EC4B27B004C7EA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECD455CB1EC4B27B004C7EA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ECD455CD1EC4B27B004C7EA1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "06_UITableView_CelllutePersonnalis\"e/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.student.-6-UITableView-CelllutePersonnalis-e";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		ECD455CE1EC4B27B004C7EA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "06_UITableView_CelllutePersonnalis\"e/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.student.-6-UITableView-CelllutePersonnalis-e";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECD455B51EC4B27B004C7EA1 /* Build configuration list for PBXProject "06_UITableView_CelllutePersonnalis"e" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD455CA1EC4B27B004C7EA1 /* Debug */,
+				ECD455CB1EC4B27B004C7EA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECD455CC1EC4B27B004C7EA1 /* Build configuration list for PBXNativeTarget "06_UITableView_CelllutePersonnalis"e" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECD455CD1EC4B27B004C7EA1 /* Debug */,
+				ECD455CE1EC4B27B004C7EA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECD455B21EC4B27B004C7EA1 /* Project object */;
+}

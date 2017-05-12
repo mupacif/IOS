@@ -1,7 +1,21 @@
 //: Playground - noun: a place where people can play
 
+//l'appel est toujours fait par le label, et quand il n'y a pas
+//de label c'est que mélangé
 func go(_ person: String, from city:String = "Bxl", lovers: Int...)->String
 {
+    print("go")
+    var cnt=0
+    for l in lovers
+    {
+        cnt += l
+    }
+    return "hello "+person+""+String(cnt)
+}
+
+func go(_ person: String, from2 city2:String = "Bxl", lovers: Int...)->String
+{
+     print("go2")
     var cnt=0
     for l in lovers
     {
@@ -54,7 +68,7 @@ Ff2(b:2<1)(2)
 //var enclo : (Int,Int)->Int = {(i1,i2) in i1*i2}
 //var enclo : (Int,Int)->Int = {i1, i2 in return i1*i2}
 var enclo : (Int,Int)->Int = {i1, i2 in i1*i2}
-var enclo2 : (Int,Int)->Int = {$0*$1}
+var enclo2 : (Int,Int)->Void = { print($0*$1)}
 
 
 enclo(4,2)

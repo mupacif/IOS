@@ -94,4 +94,22 @@ for scene in romeoAndJuliet {
 print("There are \(act1SceneCount) scenes in Act 1")
 
 
-
+func insertion(tab:[Int],op:(Int,Int)->Bool={$0>$1})
+{
+    var tmpTab = tab
+    var i = 0
+    for j in 1..<tmpTab.count
+    {
+        var key = tmpTab[j]
+        i=j-1
+        while i > -1 && op(tmpTab[i],key)
+        {
+            tmpTab[i+1]=tmpTab[i]
+            i=i-1
+        }
+        tmpTab[i+1]=key
+        
+    }
+    print(tmpTab)
+}
+insertion(tab: [50,5,3,4]){$0<$1}
