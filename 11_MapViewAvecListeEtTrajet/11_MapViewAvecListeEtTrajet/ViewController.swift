@@ -25,17 +25,23 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     var tbResultats: [MKMapItem] = []
 
+    @IBAction func cacherClevierVisuel(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        btnRechercherTouched(sender)
+    }
     
-    @IBAction func btnRechercherTouched(_ sender: UIButton) {
+    @IBAction func btnRechercherTouched(_ sender: Any?) {
         
-        
+        //sender.resignFirstResponder()
         //Supprimer les anciens placemarks 
         
-        mapView.removeAnnotation(mapView.annotations as! MKAnnotation)
+        mapView.removeAnnotations(mapView.annotations)
         tbResultats = []
         
         //créer une requête de recherche 
         let requete = MKLocalSearchRequest()
+        
+        requete.naturalLanguageQuery = txtRecherche.text
         
         //et la region de recherche aussi
         requete.region = region_a_afficher!
@@ -54,6 +60,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             }
             
             if laReponse != nil && laReponse!.mapItems.count == 0
+      
             {
                 print("aucun resultat")
             }
@@ -64,7 +71,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
                     
                     let pointInteret = MKPointAnnotation()
                 
-                pointInteret.coordinate = item.placemark.coordinate
+                    pointInteret.coordinate = item.placemark.coordinate
                     
                     pointInteret.title = item.name
                     pointInteret.subtitle = item.phoneNumber
@@ -198,10 +205,37 @@ class ViewController: UIViewController, MKMapViewDelegate {
             mapView.alpha = 1
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?)
+    {
+        let destinataire = segue.destination as! ResultatsRechercheViewController
+        
+        destinataire.itemTrouves = tbResultats
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if tbResultats.count > 0
+        {
+            return true;
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Afficher détails", message: "Il n'y a rien à détailler", preferredStyle : UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title:"fermer",style:UIAlertActionStyle.default, handler:nil))
+            
+            present(alert,animated: true, completion: nil)
+            
+            return false
+
+        }
+                }
 
 
 }
