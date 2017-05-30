@@ -10,7 +10,13 @@ import UIKit
 import MapKit
 class TrajetViewController: UIViewController, MKMapViewDelegate {
 
+    @IBAction func btnRetourTouched(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var maMap: MKMapView!
+    @IBAction func btnRecalculerTrajetTouched(_ sender: UIBarButtonItem) {
+        calculerTrajet()
+    }
     var destinationTrajet: MKMapItem?
     
     var tbInstructions : [String] = []
@@ -127,6 +133,11 @@ class TrajetViewController: UIViewController, MKMapViewDelegate {
             }
     }
     
+    
+    @IBAction func troisiemeEcranVersPremierEcran(segue:UIStoryboardSegue)
+    {
+        dismiss(animated: true, completion: nil)
+    }
 
 
 }

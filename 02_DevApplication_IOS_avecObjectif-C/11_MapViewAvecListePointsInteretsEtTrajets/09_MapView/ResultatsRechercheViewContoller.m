@@ -51,7 +51,7 @@
     //exemple
     /*cellule.etqNom.text = [NSString stringWithFormat:@"%@ %li",@"Nom",(long)indexPath.row];
     cellule.etqTelephone.text = [NSString stringWithFormat:@"%@ %li", @"Telephone", (long)indexPath.row];*/
-    
+
     //on va récupérer l'object se trouvant à l'index courante
     //dans items trouvés
     MKMapItem* item = self.itemsTrouves[indexPath.row];

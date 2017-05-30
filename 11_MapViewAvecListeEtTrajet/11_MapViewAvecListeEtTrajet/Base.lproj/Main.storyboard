@@ -293,10 +293,22 @@
                                 <items>
                                     <navigationItem title="Trajet" id="Jvn-rm-gGE">
                                         <leftBarButtonItems>
-                                            <barButtonItem title="&lt;" id="Mtk-Xh-HXA"/>
-                                            <barButtonItem title="&lt;&lt;" id="i0J-tT-yJ4"/>
+                                            <barButtonItem title="&lt;" id="Mtk-Xh-HXA">
+                                                <connections>
+                                                    <action selector="btnRetourTouched:" destination="LPC-0i-83R" id="bxO-oc-Txc"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="&lt;&lt;" id="i0J-tT-yJ4">
+                                                <connections>
+                                                    <segue destination="YTg-hW-DXb" kind="unwind" unwindAction="troisiemeEcranVersPremierEcranWithSegue:" id="n1X-Ot-DOt"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </leftBarButtonItems>
-                                        <barButtonItem key="rightBarButtonItem" title="Recalculer" id="91J-5Z-guC"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Recalculer" id="91J-5Z-guC">
+                                            <connections>
+                                                <action selector="btnRecalculerTrajetTouched:" destination="LPC-0i-83R" id="ZGk-St-Ael"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -336,6 +348,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XjM-su-9Fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="YTg-hW-DXb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1581" y="75"/>
         </scene>
