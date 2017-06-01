@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EC0A66A41EDD578000071628 /* ResultatsRechercheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0A66A31EDD578000071628 /* ResultatsRechercheViewController.swift */; };
 		EC0A66A81EDD5B9B00071628 /* CellulePersonnalisee.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0A66A71EDD5B9B00071628 /* CellulePersonnalisee.swift */; };
+		EC4652951EDFF6E40003D2CC /* InstuctionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4652941EDFF6E40003D2CC /* InstuctionViewController.swift */; };
 		ECE7B1911EDD9F1100B8718A /* TrajetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE7B1901EDD9F1100B8718A /* TrajetViewController.swift */; };
 		ECED0B8C1EDC3089000DA38C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0B8B1EDC3089000DA38C /* AppDelegate.swift */; };
 		ECED0B8E1EDC3089000DA38C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED0B8D1EDC3089000DA38C /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		EC0A66A31EDD578000071628 /* ResultatsRechercheViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultatsRechercheViewController.swift; path = ../ResultatsRechercheViewController.swift; sourceTree = "<group>"; };
 		EC0A66A71EDD5B9B00071628 /* CellulePersonnalisee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellulePersonnalisee.swift; sourceTree = "<group>"; };
+		EC4652941EDFF6E40003D2CC /* InstuctionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstuctionViewController.swift; sourceTree = "<group>"; };
 		ECE7B1901EDD9F1100B8718A /* TrajetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrajetViewController.swift; sourceTree = "<group>"; };
 		ECED0B881EDC3089000DA38C /* 11_MapViewAvecListeEtTrajet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 11_MapViewAvecListeEtTrajet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECED0B8B1EDC3089000DA38C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,11 +72,12 @@
 				ECED0B8D1EDC3089000DA38C /* ViewController.swift */,
 				EC0A66A31EDD578000071628 /* ResultatsRechercheViewController.swift */,
 				EC0A66A71EDD5B9B00071628 /* CellulePersonnalisee.swift */,
+				ECE7B1901EDD9F1100B8718A /* TrajetViewController.swift */,
+				EC4652941EDFF6E40003D2CC /* InstuctionViewController.swift */,
 				ECED0B8F1EDC3089000DA38C /* Main.storyboard */,
 				ECED0B921EDC3089000DA38C /* Assets.xcassets */,
 				ECED0B941EDC3089000DA38C /* LaunchScreen.storyboard */,
 				ECED0B971EDC3089000DA38C /* Info.plist */,
-				ECE7B1901EDD9F1100B8718A /* TrajetViewController.swift */,
 			);
 			path = 11_MapViewAvecListeEtTrajet;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 				EC0A66A41EDD578000071628 /* ResultatsRechercheViewController.swift in Sources */,
 				ECE7B1911EDD9F1100B8718A /* TrajetViewController.swift in Sources */,
 				ECED0B8C1EDC3089000DA38C /* AppDelegate.swift in Sources */,
+				EC4652951EDFF6E40003D2CC /* InstuctionViewController.swift in Sources */,
 				EC0A66A81EDD5B9B00071628 /* CellulePersonnalisee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

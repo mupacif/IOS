@@ -131,12 +131,26 @@ class TrajetViewController: UIViewController, MKMapViewDelegate {
                         maMap.remove(couche_a_supprimer)
                     }
             }
+        
+        //vider le tableau d'instuctions
+        tbInstructions = [] 
     }
     
     
-    @IBAction func troisiemeEcranVersPremierEcran(segue:UIStoryboardSegue)
-    {
-        dismiss(animated: true, completion: nil)
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination
+        
+        if destination is InstuctionViewController
+        {
+        //récupérer l'écran de destination
+        let destination = segue.destination as! InstuctionViewController
+        
+        destination.tbInformations = tbInstructions
+        }
+        
+ 
     }
 
 

@@ -56,6 +56,11 @@ class ResultatsRechercheViewController: UIViewController, UITableViewDataSource
         cellule.etqTelephone.text = item.phoneNumber
         return cellule
     }
+    @IBAction func troisiemeEcranVersPremierEcran(segue:UIStoryboardSegue)
+    {
+        print("3 to 1  ")
+        dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! TrajetViewController
