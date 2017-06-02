@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Adresse" representedClassName="Adresse" syncable="YES" codeGenerationType="class">
+        <attribute name="numero" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pays" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ville" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="personnes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Personne" inverseName="adresses" inverseEntity="Personne" syncable="YES"/>
+    </entity>
+    <entity name="Personne" representedClassName="Personne" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="prenom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="adresses" toMany="YES" deletionRule="Nullify" destinationEntity="Adresse" inverseName="personnes" inverseEntity="Adresse" syncable="YES"/>
+        <relationship name="conjoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Personne" inverseName="conjoint" inverseEntity="Personne" syncable="YES"/>
+        <relationship name="enfants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Personne" inverseName="pere" inverseEntity="Personne" syncable="YES"/>
+        <relationship name="pere" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Personne" inverseName="enfants" inverseEntity="Personne" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Adresse" positionX="142" positionY="-18" width="128" height="118"/>
+        <element name="Personne" positionX="-155" positionY="-9" width="92" height="148"/>
+    </elements>
+</model>
