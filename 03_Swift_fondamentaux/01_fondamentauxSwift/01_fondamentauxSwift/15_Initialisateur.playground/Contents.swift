@@ -26,3 +26,6 @@ class Client{
     self.nom = nom
     }
 }
+
+
+

@@ -83,7 +83,7 @@ tb.append(Employe(nom: "john", annéeNaissance: 1056))
 var e:Employe
 for i in tb{
 
-      if e = i as? Employe
+      if e = (i as? Employe)!
       {
         print("L'employé \(e.nom)")
       }

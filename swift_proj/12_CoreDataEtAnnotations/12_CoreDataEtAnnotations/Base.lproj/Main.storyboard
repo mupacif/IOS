@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="km3-UZ-AOe">
-                                <rect key="frame" x="0.0" y="151" width="320" height="417"/>
+                                <rect key="frame" x="0.0" y="173" width="320" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88581205822350551" green="0.98624963803588506" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -45,11 +45,43 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aah-gX-dpq">
-                                <rect key="frame" x="27" y="91" width="114" height="30"/>
+                                <rect key="frame" x="27" y="67" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Afficher contenu"/>
                                 <connections>
                                     <action selector="btnAffichedContenuTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vk0-Oy-EBJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="om3-rP-wnK">
+                                <rect key="frame" x="27" y="95" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="modifier personne"/>
+                                <connections>
+                                    <action selector="btnModifierPersonneTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pnC-P2-kFP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XK-yx-1un">
+                                <rect key="frame" x="27" y="122" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="modifier personne V2"/>
+                                <connections>
+                                    <action selector="btnModifierPersonneV2Touched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1j4-gD-hcQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zn1-ti-4JR">
+                                <rect key="frame" x="27" y="149" width="132" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="supprimer adresse "/>
+                                <connections>
+                                    <action selector="btnSupprimerAdressTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8db-kW-mlU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qB5-Ip-WUh">
+                                <rect key="frame" x="187" y="122" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="select personne"/>
+                                <connections>
+                                    <action selector="btnSelectionPersonnesSurAdresseTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Fx-AZ-WfM"/>
                                 </connections>
                             </button>
                         </subviews>

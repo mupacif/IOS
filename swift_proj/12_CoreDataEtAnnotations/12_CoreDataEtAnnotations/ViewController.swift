@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtDisplay: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-            initialiser()
+           // initialiser()
     }
     func afficherTexte(_ texte: String)
     {
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         
         let adresse3 = creerAdresse(no: "1", rue: "Elysé", ville: "Paris", pays: "France")
         
-        let adresse4 = creerAdresse(no: "4", rue: "4", ville: "4", pays: "4")
+        let adresse4 = creerAdresse(no: "44", rue: "rue 4", ville: "ville 4", pays: "pays 4")
         
         //utiliser la relation (l'association) 'adresses" de l'entité Personne(qui est association many-to-many)
         
@@ -265,11 +265,9 @@ class ViewController: UIViewController {
         {
             print("erreur :"+erreur.localizedDescription)
         }
-        
         return txt
     }
     @IBAction func btnInitialiserTouched(_ sender: UIButton) {
-        
         initialiser()
     }
     @IBAction func btnRAZtouched(_ sender: UIButton) {
@@ -319,6 +317,279 @@ class ViewController: UIViewController {
         
         return adresse
     }
+    @IBAction func btnModifierPersonneTouched(_ sender: Any) {
+        //modifier la personne 'nom 4 prenom 4'
+        // - incrémenter son age
+        // - supprimer l'association "adresse"
+        let ctx = getContext()
+        //récupérer la description de Personne
+        let descriptionPersonne = NSEntityDescription.entity(forEntityName: "Personne", in: ctx)
+        
+        //récupérer à partir du conteneur persistant (donc de la base) la personne Nom 4 prenom 4
+        
+        //créer une requête
+        let requete: NSFetchRequest<Personne> = Personne.fetchRequest()
+        
+        //lui passer le description
+        requete.entity = descriptionPersonne
+        
+        //créer un prédicat pour filter seulement la persone recherchée sans tenir compte de la casse et des diacritiques
+        
+        let predicat = NSPredicate(format: "nom=[cd]'nom 4' and prenom=[cd]'prenom 4'")
+        
+        //fournir ce prédicat à la requête
+        requete.predicate = predicat
+        
+        //executer la requete
+        
+        do
+        {
+            let tbPersonnes = try ctx.fetch(requete)
+            if tbPersonnes.count == 0
+            {
+                afficherTexte("la personne a modifier 'nom 4 prenom 4' n'a pas été trouvé")
+                return
+            }
+            else if tbPersonnes.count > 1
+            {
+                afficherTexte("Plusieurs personnes nom 4 prénom 4 ont été trouvés modification abandonnée")
+                return
+            }
+            
+            
+            //mettre la seule et unique personne du tableau
+            // tbPersonnes dans une constante pour simplifier le code
+            let personne = tbPersonnes.first
+            
+            //modifier l'age de la personne
+            personne!.age += 1
+            
+            //supprimer l'association adresses
+            personne!.adresses = nil
+            //rendrte les modifications persistznte
+            //sauvegarder le contexte
+            
+            do
+            {
+                try ctx.save()
+                afficherTexte("la personne nom 4 prenom 4 a été modifier et sauvegarder")
+            }catch let erreur
+            {
+                afficherTexte("la modif de la personne nom4 prenom 4 a échoué, raison invoqué:"+erreur.localizedDescription)
+            }
+        }catch let erreur
+        {
+            print("erreur : "+erreur.localizedDescription)
+        }
 
+    }
+    @IBAction func btnModifierPersonneV2Touched(_ sender: UIButton) {
+        
+        let ctx = getContext()
+        //récupérer la description de Personne
+        let descriptionPersonne = NSEntityDescription.entity(forEntityName: "Personne", in: ctx)
+        
+        //récupérer à partir du conteneur persistant (donc de la base) la personne Nom 4 prenom 4
+        
+        //créer une requête
+        let requete: NSFetchRequest<Personne> = Personne.fetchRequest()
+        
+        //lui passer le description
+        requete.entity = descriptionPersonne
+        
+        //créer un prédicat pour filter seulement la persone recherchée sans tenir compte de la casse et des diacritiques
+
+        let predicat = NSPredicate(format: "%K=%@ and %K=%@", "nom","Chirac","prenom","Bernadette")
+        
+        requete.predicate = predicat
+        
+        //executer le requête
+        var tbPersonnes : [NSFetchRequestResult]
+        do{
+            tbPersonnes = try ctx.fetch(requete)
+            if tbPersonnes.count == 0
+            {
+                afficherTexte("la personne a modifier nom prenom 4 n'a pas étét trouvé")
+                return
+            }
+            else if tbPersonnes.count > 1
+            {
+                afficherTexte("plusieurs personnes nom 4 et prenom 4 on été trouyvé modification abandonnée")
+                return
+            }
+        }catch let erreur
+        {
+            afficherTexte("la récupération de la personne chirac bernadette 4 a échoué pour la raison invoqué /"+erreur.localizedDescription)
+            return
+        }
+        
+        
+            let personne = tbPersonnes.first as! Personne
+            
+            let adresses = personne.adresses
+            
+            if adresses == nil || adresses!.count == 0
+            {
+                afficherTexte("Aucune adresse connu pour bernadette Chirac")
+                return
+            }
+            
+            //pour trouver l'adresse à supprimer je peux utiliser la solution 2
+            
+            //solution 1
+            //bouicler sur le jeux d'adresse afin de trouver celle à supprimer
+            var trouvé : Bool = false
+            var adresse:Adresse
+            for adr in adresses!
+            {
+                adresse = adr as! Adresse
+                if adresse.numero!.lowercased() == "44" &&
+                    adresse.rue!.lowercased() == "rue 4" &&
+                    adresse.ville!.lowercased() == "ville 4" &&
+                    adresse.pays!.lowercased() == "pays 4"
+                {
+                    //j'ai trouver l'adresse à supprimer
+                    //je la suprime 
+                    //méthode 1
+                        //ctx.delete(adresse)
+                    
+                    
+                    //méthode 2
+                    var jeuxModifible = NSMutableSet(set: adresses!)
+                    jeuxModifible.remove(adresse)
+                    
+                    
+                    //donner ce nouveau set d'adresse à la personne en question (Bernadette)
+                    personne.adresses = jeuxModifible
+                    
+                    trouvé = true;
+                }
+            }
+            
+            if !trouvé
+            {
+                      afficherTexte("le récupération de la personen chirac bernadette 4 a échoué raison invoquée /")
+                return
+            }
+            
+        do{
+            try ctx.save()
+            afficherTexte("l'adresse  44 rue 4 ville 4 pays 4, a été supprimé")
+        }catch let erreur
+        {
+            afficherTexte("l'adresse  44 rue 4 ville 4 pays 4, n'a pas été supprimé ")
+        }
+        
+    }
+    @IBAction func btnSupprimerAdressTouched(_ sender: UIButton) {
+        //je veux supprimer de la base l'adresse suivante
+        // 25 Rivoli, paris, France
+        
+        let ctx = getContext()
+        //récupérer la description de Personne
+        let description = NSEntityDescription.entity(forEntityName: "Adresse", in: ctx)
+        
+        //récupérer à partir du conteneur persistant (donc de la base) la personne Nom 4 prenom 4
+        
+        //créer une requête
+        let requete: NSFetchRequest<Adresse> = Adresse.fetchRequest()
+        
+        //lui passer le description
+        requete.entity = description
+        //créer un prédicat pour filter seulement la persone recherchée sans tenir compte de la casse et des diacritiques
+        
+        let predicat = NSPredicate(format: "%K=%@ and %K=%@ and %K=%@ and %K=%@", "numero","25","rue","Rivoli","ville","Paris","pays","France")
+
+        requete.predicate = predicat
+        
+        //executer la commande
+        var tbAdresses : [NSFetchRequestResult]
+        do{
+            tbAdresses = try ctx.fetch(requete)
+            if tbAdresses.count == 0
+            {
+                afficherTexte("l'adresse à modifier 25 Rivoli, paris, France n'a pas étét trouvé")
+                return
+            }
+            else if tbAdresses.count > 1
+            {
+                afficherTexte("plusieurs adresses25 Rivoli, paris, France on été trouvé, modification abandonnée")
+                return
+            }
+            
+            ctx.delete(tbAdresses.first as! NSManagedObject)
+            
+            //sauvegarde du contexte
+            
+            do{
+                try ctx.save()
+                afficherTexte("l'adresses25 Rivoli, paris a été supprimé")
+            }catch let erreur
+            {
+                afficherTexte("l'adresses25 Rivoli, paris,  n'a pas été supprimé :"+erreur.localizedDescription)
+            }
+
+        }catch let erreur
+        {
+            afficherTexte("la récupération de la l'adresse 25 Rivoli, paris, France a échoué pour la raison invoqué /"+erreur.localizedDescription)
+            return
+        }
+        
+
+
+    }
+    @IBAction func btnSelectionPersonnesSurAdresseTouched(_ sender: UIButton) {
+        
+        
+        let ctx = getContext()
+        //récupérer la description de Personne
+        let description = NSEntityDescription.entity(forEntityName: "Personne", in: ctx)
+        
+
+        //créer une requête
+        let requete: NSFetchRequest<Personne> = Personne.fetchRequest()
+        
+        //lui passer le description
+        requete.entity = description
+       
+        
+        let predicat = NSPredicate(format: "ANY %K=[c]%@ and ANY %K=[c]%@ and ANY %K=[c]%@ and ANY %K=[c]%@",
+            "adresses.numero", "25",
+            "adresses.rue","Rivoli",
+            "adresses.ville", "paris",
+            "adresses.pays", "france")
+        //on utilise any car on veut trouver les personnes ayant dans la collection adreqse au moins une adresse dont les champs ont les valeurs indiquées
+        //ANY %K=[c]%@ and ANY %K=[c]%@ and ANY %K=[c]%@ and ANY %K=[c]%@"
+        
+        //si on veut trouver les personnes ayant une adresses(n'importe laquelle)
+        //let predicat = NSPredicate(format: "%K=nil", "adresses")
+        
+        //https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreData/FetchingObjects.html
+        //https://developer.apple.com/documentation/foundation/nspredicate
+        //https://www.hackingwithswift.com/read/38/7/examples-of-using-nspredicate-to-filter-nsfetchrequest
+        requete.predicate = predicat
+        
+        //executer la requetedo
+        do {
+                 let tbPersonnes = try ctx.fetch(requete)
+                if tbPersonnes.count == 0
+                {
+                    afficherTexte("Aucune personne n'habite au 25 Rivoli ,Paris, France")
+                    return
+                }
+                
+                afficherTexte("Liste de personnes habitant au 25 rivoli, paris, france")
+                for personne in tbPersonnes
+                {
+                    afficherTexte("\(personne.prenom)")
+                }
+        }
+        catch let erreur
+        {
+            afficherTexte("la récupération des personnes habitant à l'adresse 25 rivoli paris france a echoué raison /"+erreur.localizedDescription)
+        }
+    }
 }
+
+
 

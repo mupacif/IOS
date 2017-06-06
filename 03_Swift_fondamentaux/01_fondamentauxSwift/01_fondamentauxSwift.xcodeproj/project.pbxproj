@@ -33,6 +33,7 @@
 		ECD217671EB9ED5E00DFA360 /* Collections.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Collections.playground; sourceTree = "<group>"; };
 		ECD217681EBA03FE00DFA360 /* 02_optionals.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 02_optionals.playground; sourceTree = "<group>"; };
 		ECD217691EBA1A9500DFA360 /* 03_Opérateurs.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "03_Opérateurs.playground"; sourceTree = "<group>"; };
+		ECDC04741EE6D8A3000FAFF0 /* 16_leverEtAttraperErreur.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 16_leverEtAttraperErreur.playground; sourceTree = "<group>"; };
 		ECE3B5881EC20B1C00F0DD68 /* 13_subscripts.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = 13_subscripts.playground; sourceTree = "<group>"; };
 		ECE3B5891EC2FF4E00F0DD68 /* 14_héritage.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "14_héritage.playground"; sourceTree = "<group>"; };
 		ECE9FEC51EBB120800C2BEBE /* 04_chainesDeCaractères.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "04_chainesDeCaractères.playground"; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 				ECE3B5881EC20B1C00F0DD68 /* 13_subscripts.playground */,
 				ECE3B5891EC2FF4E00F0DD68 /* 14_héritage.playground */,
 				EC8FB65F1EC31D2600F3B3C9 /* 15_Initialisateur.playground */,
+				ECDC04741EE6D8A3000FAFF0 /* 16_leverEtAttraperErreur.playground */,
 			);
 			path = 01_fondamentauxSwift;
 			sourceTree = "<group>";
