@@ -12,6 +12,7 @@
 		ECDC04891EE6F13B000FAFF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDC04871EE6F13B000FAFF0 /* Main.storyboard */; };
 		ECDC048B1EE6F13B000FAFF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDC048A1EE6F13B000FAFF0 /* Assets.xcassets */; };
 		ECDC048E1EE6F13B000FAFF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDC048C1EE6F13B000FAFF0 /* LaunchScreen.storyboard */; };
+		ECF83B831EE7ED500035BE38 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF83B821EE7ED500035BE38 /* Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		ECDC048A1EE6F13B000FAFF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECDC048D1EE6F13B000FAFF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECDC048F1EE6F13B000FAFF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF83B821EE7ED500035BE38 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				ECDC048A1EE6F13B000FAFF0 /* Assets.xcassets */,
 				ECDC048C1EE6F13B000FAFF0 /* LaunchScreen.storyboard */,
 				ECDC048F1EE6F13B000FAFF0 /* Info.plist */,
+				ECF83B821EE7ED500035BE38 /* Util.swift */,
 			);
 			path = 16_JSONWHEDUFINTHIS;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECDC04861EE6F13B000FAFF0 /* ViewController.swift in Sources */,
+				ECF83B831EE7ED500035BE38 /* Util.swift in Sources */,
 				ECDC04841EE6F13B000FAFF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +305,7 @@
 				ECDC04941EE6F13B000FAFF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
