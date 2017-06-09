@@ -10,6 +10,11 @@ import UIKit
 import MapKit
 class ViewController: UIViewController, MKMapViewDelegate {
 
+    @IBOutlet weak var txtRecherche: UITextField!
+    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var sliderRegion: UISlider!
+    
     var suivreUtilisateur = true;
     
     var coteRegion: Float?
@@ -86,10 +91,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-    @IBOutlet weak var txtRecherche: UITextField!
-    @IBOutlet weak var mapView: MKMapView!
-    
-    @IBOutlet weak var sliderRegion: UISlider!
+
     
     @IBAction func typeMapChanged(_ sender: UISegmentedControl) {
         switch (sender.selectedSegmentIndex) {
