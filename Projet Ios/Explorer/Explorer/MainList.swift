@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import MapKit
 import CoreData
-class MainList: UIViewController {
+class MainList: UIViewController, UITableViewDataSource {
 
+ 
     var liste:[String]=[]
     @IBOutlet weak var tableList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialisation()
-
+        
+    initialisation()
+tableList.dataSource = self
         // Do any additional setup after loading the view.
     }
     func initialisation()
@@ -33,7 +36,7 @@ class MainList: UIViewController {
         }catch let error
         {
             print("erreur créeation de la db ou la db existe deja")
-            
+            refreshElements()
             return
         }
     }
@@ -53,12 +56,11 @@ class MainList: UIViewController {
     func creerItem(_ item:String)
     {
         let context = getContext()
-        
         //récupérer la descreiption de l'(entité adresse
         let description = NSEntityDescription.entity(forEntityName: "Liste", in: context)!
         
         let elt = Liste(entity: description, insertInto: context)
-        elt.item = item as NSObject
+        elt.item = item
         
         do{
             try context.save()
@@ -67,13 +69,12 @@ class MainList: UIViewController {
         {
             print("La sauvegarde des données a échoué\n")
         }
-        
         refreshElements()
-        
     }
-    
+
     func refreshElements()
     {
+        print("refreshing")
         let ctx = getContext()
         let description = NSEntityDescription.entity(forEntityName: "Liste", in: ctx)!
         
@@ -86,7 +87,9 @@ class MainList: UIViewController {
             liste = []
             for item in listeItems
             {
-                liste.append(item.item! as! String)
+                var str = item.item! as String
+                liste.append(str)
+                print("\(str) listed")
             }
             
         }catch let error
@@ -94,8 +97,30 @@ class MainList: UIViewController {
             print (error.localizedDescription)
         }
         tableList.reloadData()
-
+    }
+   // override func viewDidAppear(_ animated: Bool) {
+     //        initialisation()
+    //}
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return liste.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //   let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
+        let cellule:homeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "homeCellule", for:indexPath) as! homeTableViewCell
+        var item = liste[indexPath.row]
+        cellule.etqNom.text = item
+        return cellule
     }
 
 }

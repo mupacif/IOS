@@ -11,6 +11,8 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
     
     @IBAction func sendData(_ sender: Any) {
     }
+    var destinationTrajet: MKMapItem?
+
     @IBOutlet weak var txtRecherche: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -92,7 +94,12 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
         
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?)
+    {
+        let destinataire = segue.destination as! ResultatRecherche        
+        destinataire.itemTrouves = tbResultats
+    }
+    
     
     @IBAction func typeMapChanged(_ sender: UISegmentedControl) {
         switch (sender.selectedSegmentIndex) {
@@ -163,7 +170,7 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
         //suivreUtilisateur est vrai)
         if(self.suivreUtilisateur)
         {
-            dernierePosition = CLLocationCoordinate2DMake(
+                dernierePosition = CLLocationCoordinate2DMake(
                 mapView.userLocation.coordinate.latitude,
                 mapView.userLocation.coordinate.longitude);
         }
@@ -215,8 +222,14 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    @IBAction func goToMain(_ sender: Any?)
+    {
+        print("hello")
+      //  dismiss(animated: true, completion: nil)
+    }
 
+    @IBAction func wayToMain(_ sender: UIButton) {
+          dismiss(animated: true, completion: nil)    }
 }
     
     
