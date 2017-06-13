@@ -9,17 +9,17 @@
 import UIKit
 import MapKit
 import CoreData
-class MainList: UIViewController, UITableViewDataSource {
+class MainList: UIViewController ,UITableViewDataSource {
 
  
     var liste:[String]=[]
+    var itemsList:[ExplorerItem]=[]
     @IBOutlet weak var tableList: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    initialisation()
-tableList.dataSource = self
-        // Do any additional setup after loading the view.
+        tableList.dataSource = self
+        initialisation()
+        // Do any .dataSource = self setup after loading the view.
     }
     func initialisation()
     {
@@ -36,7 +36,8 @@ tableList.dataSource = self
         }catch let error
         {
             print("erreur créeation de la db ou la db existe deja")
-            refreshElements()
+            //refreshElements()
+            refreshItemElements()
             return
         }
     }
@@ -53,25 +54,72 @@ tableList.dataSource = self
         return appDelegate.persistentContainer.viewContext
     }
     
-    func creerItem(_ item:String)
-    {
-        let context = getContext()
-        //récupérer la descreiption de l'(entité adresse
-        let description = NSEntityDescription.entity(forEntityName: "Liste", in: context)!
+
+
+    @IBAction func btnDeleteItemTouched(_ sender: UIButton) {
+        print("delete")
         
-        let elt = Liste(entity: description, insertInto: context)
-        elt.item = item
+        let indexPath = tableList.indexPathForSelectedRow
+      
+        guard indexPath != nil else {
+            print("nothing selected:")
+            return
+        }
+        var item = itemsList[indexPath!.row]
+      
+      
         
+        let ctx = getContext()
+        //récupérer la description de Personne
+        let description = NSEntityDescription.entity(forEntityName: "MapItem", in: ctx)
+        
+        //récupérer à partir du conteneur persistant (donc de la base) la personne Nom 4 prenom 4
+        
+        //créer une requête
+        let requete: NSFetchRequest<MapItem> = MapItem.fetchRequest()
+        
+        //lui passer le description
+        requete.entity = description
+        //créer un prédicat pour filter seulement la persone recherchée sans tenir compte de la casse et des diacritiques
+        
+        let predicat = NSPredicate(format: "%K=%@ ", "name", item.name!)
+        
+        requete.predicate = predicat
+        
+        //executer la commande
+        var tbAdresses : [NSFetchRequestResult]
         do{
-            try context.save()
-            print("enregistrement item de liste")
+            tbAdresses = try ctx.fetch(requete)
+            if tbAdresses.count == 0
+            {
+                print("l'adresse à  n'a pas été trouvé")
+                return
+            }
+            else if tbAdresses.count > 1
+            {
+                print("plusieurs adresses25 Rivoli, paris, France on été trouvé, modification abandonnée")
+                return
+            }
+            
+            ctx.delete(tbAdresses.first as! NSManagedObject)
+            
+            //sauvegarde du contexte
+            
+            do{
+                try ctx.save()
+                print("l'adresses a été supprimé")
+                refreshItemElements()
+            }catch let erreur
+            {
+                print("l'adressesn'a pas été supprimé :"+erreur.localizedDescription)
+            }
+            
         }catch let erreur
         {
-            print("La sauvegarde des données a échoué\n")
+            print("la récupération de la l'adresse 25 Rivoli, paris, France a échoué pour la raison invoqué /"+erreur.localizedDescription)
+            return
         }
-        refreshElements()
     }
-
     func refreshElements()
     {
         print("refreshing")
@@ -89,7 +137,35 @@ tableList.dataSource = self
             {
                 var str = item.item! as String
                 liste.append(str)
-                print("\(str) listed")
+            }
+            
+        }catch let error
+        {
+            print (error.localizedDescription)
+        }
+        tableList.reloadData()
+    }
+    
+    func refreshItemElements()
+    {
+        print("refreshing")
+        let ctx = getContext()
+        let description = NSEntityDescription.entity(forEntityName: "MapItem", in: ctx)!
+        
+        let requete : NSFetchRequest<MapItem> = MapItem.fetchRequest()
+        //passer le descriptiof
+        requete.entity = description
+        //executer la requete
+        do{
+            let listeItems = try ctx.fetch(requete)
+
+            for item in listeItems
+            {
+               
+                var item = ExplorerItem(name: item.name!, phone: item.phone!, lat: item.lat, lng: item.lng)
+                itemsList.append(item)
+                print(item.name!)
+           
             }
             
         }catch let error
@@ -110,17 +186,31 @@ tableList.dataSource = self
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return liste.count
+              // return liste.count
+        print(itemsList.count)
+        return itemsList.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //   let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let cellule:homeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "homeCellule", for:indexPath) as! homeTableViewCell
+       /* let cellule:homeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "homeCellule", for:indexPath) as! homeTableViewCell
         var item = liste[indexPath.row]
         cellule.etqNom.text = item
+        print("size of list \(item) value")
+ */
+
+        let cellule:homeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "homeCellule", for:indexPath) as! homeTableViewCell
+        var item = itemsList[indexPath.row]
+        cellule.etqNom.text = item.name
+        print("size of list \(item) value")
+        
         return cellule
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        refreshItemElements()
     }
 
 }

@@ -54,6 +54,7 @@ class ResultatRecherche: UIViewController ,UITableViewDataSource
         let cellule:CellulePersonnalisee = maTable.dequeueReusableCell(withIdentifier: "celluleResultat", for:indexPath) as! CellulePersonnalisee
         var item = itemTrouves[indexPath.row]
         cellule.etqNom.text = item.name
+        print("name \(item.name)")
         cellule.etqTelephone.text = item.phoneNumber
         return cellule
     }
@@ -65,7 +66,7 @@ class ResultatRecherche: UIViewController ,UITableViewDataSource
         var item = itemTrouves[indexPath.row]
         
         //destination.destinationTrajet = itemTrouves[indexPath.row]
-        creerItem(item.name!)
+        creerItem(item)
         print("enregistrement fait")
 
     }
@@ -79,19 +80,28 @@ class ResultatRecherche: UIViewController ,UITableViewDataSource
         return appDelegate.persistentContainer.viewContext
     }
     
-    func creerItem(_ item:String)
+    func creerItem(_ item:MKMapItem)
     {
         let context = getContext()
         //récupérer la descreiption de l'(entité adresse
         let description = NSEntityDescription.entity(forEntityName: "Liste", in: context)!
         
         let elt = Liste(entity: description, insertInto: context)
-        elt.item = item
+        elt.item = item.name
         
+        
+        let descriptiona = NSEntityDescription.entity(forEntityName: "MapItem", in: context)!
+        
+        let elta = MapItem(entity: descriptiona, insertInto: context)
+        elta.name = item.name
+        elta.phone = item.phoneNumber
+        elta.lat = item.placemark.coordinate.latitude
+        elta.lng = item.placemark.coordinate.longitude
         do{
             print("\(item) enregistrée")
             try context.save()
             print("enregistrement item de liste")
+            dismiss(animated: true, completion: nil)
         }catch let erreur
         {
             print("La sauvegarde des données a échoué\n")
