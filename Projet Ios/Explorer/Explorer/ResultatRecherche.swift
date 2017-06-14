@@ -11,7 +11,7 @@ import MapKit
 import CoreData
 class ResultatRecherche: UIViewController ,UITableViewDataSource
 {
-    
+    var destinationTrajet: MKMapItem?
     @IBAction func btnRetourTouched(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -108,5 +108,7 @@ class ResultatRecherche: UIViewController ,UITableViewDataSource
         }
 
     }
+    
+ 
     
 }

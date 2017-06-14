@@ -18,6 +18,7 @@
 		EC7E9D711EE989D6002016C2 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E9D701EE989D6002016C2 /* AddPlaceViewController.swift */; };
 		EC7E9D731EE999AE002016C2 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E9D721EE999AE002016C2 /* MainList.swift */; };
 		EC7E9D751EE99C9F002016C2 /* ItemCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7E9D741EE99C9F002016C2 /* ItemCellTableViewCell.swift */; };
+		ECF767621EF163EF00343AFE /* TrajetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF767611EF163EF00343AFE /* TrajetViewController.swift */; };
 		ECF83B6E1EE7EAD30035BE38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF83B6D1EE7EAD30035BE38 /* AppDelegate.swift */; };
 		ECF83B701EE7EAD30035BE38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF83B6F1EE7EAD30035BE38 /* ViewController.swift */; };
 		ECF83B731EE7EAD30035BE38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF83B711EE7EAD30035BE38 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		EC7E9D701EE989D6002016C2 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		EC7E9D721EE999AE002016C2 /* MainList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		EC7E9D741EE99C9F002016C2 /* ItemCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCellTableViewCell.swift; sourceTree = "<group>"; };
+		ECF767611EF163EF00343AFE /* TrajetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrajetViewController.swift; sourceTree = "<group>"; };
 		ECF83B6A1EE7EAD30035BE38 /* Explorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Explorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECF83B6D1EE7EAD30035BE38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECF83B6F1EE7EAD30035BE38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				EC3C86371EEEE3E300CC768E /* homeTableViewCell.swift */,
 				EC397A9E1EF021B00053EEB4 /* ExplorerItem.swift */,
 				EC3FB2291EF12A77009F7522 /* GoogleService-Info.plist */,
+				ECF767611EF163EF00343AFE /* TrajetViewController.swift */,
 			);
 			path = Explorer;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			files = (
 				EC7E9D711EE989D6002016C2 /* AddPlaceViewController.swift in Sources */,
 				EC3C86381EEEE3E300CC768E /* homeTableViewCell.swift in Sources */,
+				ECF767621EF163EF00343AFE /* TrajetViewController.swift in Sources */,
 				EC034A801EEAF04E00A19505 /* ResultatRecherche.swift in Sources */,
 				EC397A9F1EF021B00053EEB4 /* ExplorerItem.swift in Sources */,
 				EC7E9D731EE999AE002016C2 /* MainList.swift in Sources */,

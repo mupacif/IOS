@@ -9,9 +9,19 @@
 import UIKit
 import MapKit
 import CoreData
+import Firebase
 class MainList: UIViewController ,UITableViewDataSource {
 
- 
+ var destinationTrajet: MKMapItem?
+    @IBAction func disconnectTouched(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
     var liste:[String]=[]
     var itemsList:[ExplorerItem]=[]
     @IBOutlet weak var tableList: UITableView!
@@ -55,6 +65,21 @@ class MainList: UIViewController ,UITableViewDataSource {
     }
     
 
+    @IBAction func showInstruction(_ sender: UIButton) {
+        
+        let indexPath = tableList.indexPathForSelectedRow
+        
+        guard indexPath != nil else {
+            print("nothing selected:")
+            return
+        }
+        var item = itemsList[indexPath!.row]
+        destinationTrajet = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: item.lat!, longitude: item.lng!)))
+        
+        performSegue(withIdentifier: "goToInstruction", sender: self)
+
+
+    }
 
     @IBAction func btnDeleteItemTouched(_ sender: UIButton) {
         print("delete")
@@ -156,6 +181,7 @@ class MainList: UIViewController ,UITableViewDataSource {
         //passer le descriptiof
         requete.entity = description
         //executer la requete
+        itemsList = []
         do{
             let listeItems = try ctx.fetch(requete)
 
@@ -211,6 +237,21 @@ class MainList: UIViewController ,UITableViewDataSource {
     
     override func viewDidAppear(_ animated: Bool) {
         refreshItemElements()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination
+        
+        if destination is TrajetViewController
+        {
+            //récupérer l'écran de destination
+            let destination = segue.destination as! TrajetViewController
+            
+            destination.destinationTrajet = destinationTrajet
+        }
+        
+        
     }
 
 }

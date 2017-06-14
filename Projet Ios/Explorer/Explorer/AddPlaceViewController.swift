@@ -12,7 +12,7 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
     @IBAction func sendData(_ sender: Any) {
     }
     var destinationTrajet: MKMapItem?
-
+   
     @IBOutlet weak var txtRecherche: UITextField!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -127,6 +127,11 @@ class AddPlaceViewController: UIViewController, MKMapViewDelegate {
         suivreUtilisateur = sender.isOn
     }
     
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        let center = mapView.centerCoordinate
+        print(center.latitude)
+        print(center.longitude)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
