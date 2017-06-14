@@ -43,7 +43,6 @@
                                 <state key="normal" title="Sign in"/>
                                 <connections>
                                     <action selector="signInTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vbh-Vu-fCD"/>
-                                    <segue destination="bow-GI-BJM" kind="presentation" id="3bQ-7C-Pdz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DB4-v6-J8G">
@@ -55,12 +54,21 @@
                                     <action selector="signUpTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U34-ds-Lhe"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L0C-Pv-RQS">
+                                <rect key="frame" x="52" y="53" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="txtDisplay" destination="L0C-Pv-RQS" id="0El-cp-aa9"/>
                         <outlet property="txtLogin" destination="O7O-ek-mlQ" id="bwh-at-kbr"/>
                         <outlet property="txtPassword" destination="dJi-AH-geX" id="ArB-hl-cff"/>
+                        <segue destination="bow-GI-BJM" kind="presentation" identifier="goToHome" id="p9g-2V-epy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
